@@ -1,0 +1,19 @@
+<header data-header-target="headercont" id="main_header" data-turbo-permanent class= "header-cont flex jc-sb">
+  <div data-header-target= "logocont" class= "logo-cont">
+    <%= link_to image_tag("logo.jpg", class: "logo", data: { header_target: "logohome", action: "click->header#removeUnderline" }), home_path %> 
+    <%= link_to image_tag("logo blue.jpg", class: "secondary", data: { header_target: "logoother", action: "click->remove#classesUnderline" }), home_path %>
+  </div> 
+
+  <div class="main icon-container">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <div class= "main menu jc-sb ai">
+      <h2><%= link_to "Classes", timetable_path(id: 'current'), class: "button-menu", data: { header_targets: ["menu", "classes"], action: "click->header#classesUnderline" } %></h2>
+      <h2><%= link_to "Timetable", timetable_path(id: 'current'), class: "button-menu", data: { header_targets: ["menu", "timetable"], action: "click->header#timetableUnderline" } %></h2>
+      <h2><%= link_to "BootyBarre", timetable_path(id: 'current'), class: "button-menu", data: { header_targets: ["menu", "bootybarre"], action: "click->header#bootybarreUnderline" } %></h2>
+  </div>
+
+</header>

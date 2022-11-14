@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Timetables</h1>
+
+<div data-controller="timetable" class="timetables">
+  <div class="first__container">
+    <% if @first_term %>
+      <% timetable = @first_term %>
+      <%= render timetable %>
+    <% else %>
+      <div class="empty"></div>
+    <% end %>
+  </div>
+
+  <div class="second__container">
+    <% if @second_term %>
+      <% timetable = @second_term %>
+      <%= render timetable %>
+    <% else %>
+      <div class="empty"></div>
+    <% end %>
+  </div>
+
+  <div class="third__container">
+    <% if @third_term %>
+      <% timetable = @third_term %>
+      <%= render timetable %>
+    <% else %>
+      <div class="empty"></div>
+    <% end %>
+  </div>
+
+  <div class="fourth__container">
+    <% if @fourth_term %>
+      <% timetable = @fourth_term %>
+      <%= render timetable %>
+    <% else %>
+      <div class="empty"></div>
+    <% end %>
+  </div>
+</div>
+    

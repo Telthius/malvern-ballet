@@ -1,0 +1,18 @@
+<header class= "header-cont flex jc-sb blue">
+  <%= link_to image_tag("logo blue.jpg", class: "logo-secondary"), home_path %>
+
+  <div class="icon-container flex ai-c">
+    <div class="icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  <div class= "menu jc-sb ai-c">
+      <h2> About </h2>
+      <h2> Classes </h2>
+      <h2><%= link_to "Timetable", timetables_path, class: "button-menu" %></h2>
+      <h2> Account </h2>
+  </div>
+</header>

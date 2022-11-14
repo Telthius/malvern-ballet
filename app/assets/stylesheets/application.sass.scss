@@ -1,0 +1,15 @@
+// Entry point for your Sass build
+// Mixins
+@import "mixins/media";
+
+// Configuration
+@import "config/fonts";
+@import "config/variables";
+@import "config/reset";
+@import "components/card";
+@import "components/button";
+@import "components/gallery";
+@import "layouts/flexbox";
+@import "layouts/header";
+@import "layouts/title";
+@import "pages/home";

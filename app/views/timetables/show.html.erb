@@ -1,0 +1,9 @@
+
+
+<% if @timetable == nil %>
+  <%= render "not_found" %>
+<% else %>
+  <%= render @timetable, :daily_classes => @daily_classes %>
+<% end %>
+
+

@@ -1,0 +1,37 @@
+.title {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-bottom: -30px;
+
+  @include media(tabletAndUp) {
+    margin-bottom: -50px;
+  }
+  z-index: 2;
+}
+
+.malvern {
+  font-family: northwave;
+  font-size: 6em;
+  letter-spacing: 2px;
+  font-weight: normal;
+
+  @include media(tabletAndUp) {
+    font-size: 10em;
+  }
+}
+
+.ballet {
+  font-family: JosefinSans;
+  font-size: 1.3em;
+  letter-spacing: 0.5vw;
+  color: #FFFFFF;
+  margin-top: -20px;
+
+  @include media(tabletAndUp) {
+    font-size: 2em;
+    margin-top: -30px;
+  }
+}

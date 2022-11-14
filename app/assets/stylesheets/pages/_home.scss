@@ -1,0 +1,206 @@
+.home__cont {
+  z-index: -5;
+  // background-color: black;
+}
+
+.home__upper {
+  position: relative;
+  height: 50%;
+  z-index: 2;
+}
+
+.home__lower {
+  height: 50%;
+  background-color: #7CC6FE;
+  z-index: 1;
+}
+
+.banner-pic {
+  width: 100%;
+}
+
+.portrait__container {
+  height: 300px;
+  position: relative
+}
+
+.portrait {
+  height: 100%;
+  margin-right: 4%;
+  display: none;
+  z-index: 1;
+
+  @include media(tabletAndUp) {
+    display: block;
+  }
+}
+
+.register__container {
+  background-color: #5DFDCB;
+  width: 100%;
+}
+
+.register__line {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  border-bottom: 1.5px solid black;
+}
+
+.register__button {
+  font-family: var(--font-family-primary);;
+  color: #333333;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transform:translateY(50%);
+  background-color: #5DFDCB;
+  border: 2px solid black;
+  border-top: none;
+  border-bottom: none;
+  font-weight: bold;
+  font-size: var(--font-size-xxl);
+  z-index: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.register__button:hover {
+    color: white;
+    // border-color: white;
+  }
+
+.landscape__container {
+  width: 100%;
+}
+
+.form__container {
+  background-color: #e7bbe3;
+  flex: 1;
+}
+
+
+
+
+// #upper-cont {
+//   display: flex;
+//   height: 50%;
+//   z-index:-1;
+//   background-color: #FFFFFF;
+// }
+
+// #upper-left {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   width: 50%;
+
+// }
+
+// #upper-right {
+//   display: flex;
+//   flex-direction: column;
+//   width: 50%;
+// }
+
+// #lower-cont {
+//   display: flex;
+//   height: 50%;
+//   background-color: #7CC6FE;
+//   z-index: -1;
+// }
+
+// #lower-left {
+//   display: flex;
+//   justify-content: flex-end;
+//   width: 50%;
+// }
+
+// #lower-right {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-content: center;
+//   width: 50%;
+// }
+
+// // .logo {
+// //   align-self: flex-start;
+// //   width: 20%;
+// //   margin-top: 4%;
+// //   margin-left: 8%;
+// // }
+
+// #heading {
+//   position: relative;
+//   display: flex;
+//   justify-content: flex-end;
+//   width: 100%;
+//   z-index: 100;
+// }
+
+// #malvern {
+//   font-family: north-wave;
+//   font-size: 8vw;
+//   /* text-align: center; */
+//   letter-spacing: 2px;
+//   margin-bottom: -7%;
+//   font-weight: normal;
+//   margin-top: 0;
+// }
+
+// #ballet {
+//   font-family: JosefinSans;
+//   font-size: 1.5vw;
+//   letter-spacing: 0.5vw;
+//   color: #FFFFFF;
+//   margin-top: 1%;
+// }
+
+// #menu-bar {
+//   position: relative;
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-content: center;
+//   text-align: center;
+//   width: 100%;
+//   margin-top: 5%;
+// }
+
+// // .button {
+// //   font-family: JosefinSans-reg;
+// //   color: #333333;
+// //   font-size: 1.2vw;
+// //   letter-spacing: 2px;
+// //   cursor: pointer;
+// // }
+
+// .button:hover {
+//   text-decoration: underline;
+// }
+
+// /* #motto {
+//   position: absolute;
+//   font-family: JosefinSans;
+//   color: #333333;
+//   font-size: 2vw;
+//   letter-spacing: 2px;
+//   text-align: center;
+//   font-weight: normal;
+//   left:0;
+//   right:0;
+//   margin-left:auto;
+//   margin-right:auto;
+//   bottom: 0;
+//   font-weight: bold;
+// } */
+
+// #banner {
+//   width: 100%;
+//   font-weight: normal;
+
+// }
+// #banner-pic
+// {
+//   width: 100%;
+//   position: relative;
+// }

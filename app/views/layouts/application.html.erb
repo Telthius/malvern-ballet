@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Malvern</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag asset_path("logo.jpg") %>
+  </head>
+
+  <body>
+    <section id= "home" class= "home__cont flex col">
+      <div class= "home__upper flex col jc-sb">
+        <%= render "shared/main_header" %>
+        <%= render "shared/title" %>
+      </div>
+      <div class= "home__lower">
+      </div>
+    </section>
+  <%= yield %>
+  </body>
+</html>

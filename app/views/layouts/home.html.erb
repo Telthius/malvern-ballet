@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Malvern</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag asset_path("logo.jpg") %>
+  </head>
+
+  <body>
+    <section 
+    data-controller= "header"
+    data-header-logo-class= "logo-secondary"
+    data-header-pictureout-class= "secondary" 
+    data-header-picturein-class= "logo" 
+    data-header-blue-class="header-colour" 
+    data-header-underline-class="button-underline"
+    id= "home" 
+    class= "home__cont flex col">
+      <div class= "home__upper flex col jc-sb">
+        <%= render "shared/main_header" %>
+        <%= render "shared/title" %>
+      </div>
+      <div data-header-target= "home" class= "home__lower">
+      </div>
+    </section>
+  <%= yield %>
+  </body>
+</html>
+
+<script>
+  document.getElementById("home").style.height = `${window.innerHeight}px`;
+</script>
