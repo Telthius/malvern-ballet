@@ -3,38 +3,31 @@ import { Controller } from "@hotwired/stimulus"
 const liveTimetable = document.querySelectorAll('.gallery__picture').length - 1;
 
 export default class extends Controller {
-  static targets = [ "term", "term_one", "term_two", "term_three", "term_four" ]
-
-  
+  static values = { index: String }
+  static targets = [ "term1", "term2", "term3", "term4" ]
+  static classes = ["term"]
 
   initialize() {
-    this.index = liveTimetable
-    this.showCurrentTimetable()
+    this.my_target = this.find_target(this.indexValue)
+    this.my_target.classList.add(this.termClass)
   }
 
-  term_one() {
-    this.index = 0
-    showCurrentTimetable()
-  }
-
-  term_two() {
-    this.index = 1
-    showCurrentTimetable()
-  }
-
-  term_three() {
-    this.index = 2
-    showCurrentTimetable()
-  }
-
-  term_four() {
-    this.index = 3
-    showCurrentTimetable()
-  }
-
-  showCurrentTimetable() {
-    this.termTargets.forEach((element, index) => {
-      element.hidden = index !== this.index
-    })
+  find_target(value) {
+    switch (value) {
+      case '1':
+        return this.term1Target
+    }
+    switch (value) {
+      case '2':
+        return this.term2Target
+    }
+    switch (value) {
+      case '3':
+        return this.term3Target
+    }
+    switch (value) {
+      case '4':
+        return this.term4Target
+    }
   }
 }

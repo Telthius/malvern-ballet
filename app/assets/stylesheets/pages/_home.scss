@@ -1,6 +1,5 @@
 .home__cont {
   z-index: -5;
-  // background-color: black;
 }
 
 .home__upper {
@@ -48,7 +47,7 @@
 }
 
 .register__button {
-  font-family: var(--font-family-primary);;
+  font-family: var(--font-family-primary);
   color: #333333;
   letter-spacing: 2px;
   cursor: pointer;
@@ -66,7 +65,6 @@
 
 .register__button:hover {
     color: white;
-    // border-color: white;
   }
 
 .landscape__container {

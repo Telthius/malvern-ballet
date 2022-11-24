@@ -1,0 +1,55 @@
+.table-cont {
+  @include media(tabletAndUp) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.term-cont {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  justify-content: space-evenly;
+}
+
+.year {
+  font-family: "open-light";
+  font-size: 8rem;
+}
+
+.term {
+  padding: 1%;
+  font-family: "open-light";
+  font-size: 1.5rem;
+}
+
+.term:hover {
+  font-size: 2rem;
+}
+
+.term-box {
+  font-size: 2rem;
+  border: 1px solid black;
+}
+
+.timetable {
+  table-layout: fixed;
+  width: 90%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.day {
+  width: 15%;
+  font-family: "open";
+  @include media(tabletAndUp) {
+    border-right: 1px solid black;
+  }
+}
+
+.class-cont {
+  display: flex;
+  justify-content: center;
+}
+.empty {
+  height: 20px
+}

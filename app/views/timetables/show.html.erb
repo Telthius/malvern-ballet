@@ -1,9 +1,29 @@
-
-
-<% if @timetable == nil %>
-  <%= render "not_found" %>
-<% else %>
-  <%= render @timetable, :daily_classes => @daily_classes %>
-<% end %>
+<section  
+id= "timetable" 
+class= "flex col" 
+data-controller= "header" 
+data-header-pictureout-class= "secondary" 
+data-header-logo-class= "logo-secondary" 
+data-header-blue-class="header-colour"
+data-header-underline-class="button-underline">
+  <%= render "shared/header" %>
+  <div data-header-target="other" class="year-cont flex jc-c">
+    <a class=year><%= Date.current.year %></a>
+  </div>
+  <div class="term-cont flex"
+  data-controller= "timetable" 
+  data-timetable-index-value="<%= @timetable_classes&.term %>"
+  data-timetable-term-class= "term-box">
+    <%= link_to "Term 1", timetable_path(id: '1'), class: "term term1", data: { timetable_target: "term1" } %>
+    <%= link_to "Term 2", timetable_path(id: '2'), class: "term term2", data: { timetable_target: "term2" } %>
+    <%= link_to "Term 3", timetable_path(id: '3'), class: "term term3", data: { timetable_target: "term3" } %>
+    <%= link_to "Term 4", timetable_path(id: '4'), class: "term term4", data: { timetable_target: "term4" } %>
+  </div>
+  <% if @timetable_classes.empty %>
+    <%= render "not_found" %>
+  <% else %>
+    <%= render "timetable", :timetable_classes => @timetable_classes %>
+  <% end %>
+</section>
 
 
