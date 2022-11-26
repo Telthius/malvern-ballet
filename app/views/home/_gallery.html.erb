@@ -1,4 +1,6 @@
-<div data-controller="slideshow" class=gallery>
+<%
+=begin%>
+ <div data-controller="slideshow" class=gallery>
   <div class="gallery__left">
     <div data-action="click->slideshow#previous", data-slideshow-target="previous", class=button-arrow>
       <a class="arrow__element">&#8249;</a>
@@ -12,4 +14,24 @@
       <a class="arrow__element">&#8250;</a>
     </div>
   </div>
+</div> 
+<%
+=end%>
+
+<div data-controller="carousel" class="gallery swiper swiper-initialized swiper-horizontal swiper-pointer-events"
+    data-carousel-options-value='{
+    "pagination": { "el": ".swiper-pagination", 
+                    "dynamicBullets": "true" },
+    "navigation": { "nextEl": ".swiper-button-next", 
+                    "prevEl": ".swiper-button-prev"}}'>
+  <div class="swiper-wrapper poop">
+    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "picture2.jpg", class: "picture"%></div>
+    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "Grade1.jpg", class: "picture"%></div>
+    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "Grade2.jpg", class: "picture"%></div>
+  </div>
+  <div class="swiper-pagination"></div>
+
+  <!-- Navigation buttons (< >) -->
+  <div class="swiper-button-prev gallery__button"></div>
+  <div class="swiper-button-next gallery__button"></div>
 </div>

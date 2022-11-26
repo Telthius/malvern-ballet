@@ -8,9 +8,12 @@ import HelloController from "./hello_controller"
 import SlideshowController from "./slideshow_controller"
 import HeaderController from "./header_controller"
 import TimetableController from "./timetable_controller"
+import Carousel from 'stimulus-carousel'
+import 'swiper/css/bundle'
 
 application.register("hello", HelloController)
 application.register("slideshow", SlideshowController)
 application.register("header", HeaderController)
 application.register("timetable", TimetableController)
+application.register('carousel', Carousel)
 
