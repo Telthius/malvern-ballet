@@ -1,23 +1,3 @@
-<%
-=begin%>
- <div data-controller="slideshow" class=gallery>
-  <div class="gallery__left">
-    <div data-action="click->slideshow#previous", data-slideshow-target="previous", class=button-arrow>
-      <a class="arrow__element">&#8249;</a>
-    </div>
-  </div>
-  <div data-slideshow-target="slide", class= "gallery__picture"><%= image_tag "picture2.jpg", class: "picture"%></div>
-  <div data-slideshow-target="slide", class= "gallery__picture"><%= image_tag "Grade1.jpg", class: "picture"%></div>
-  <div data-slideshow-target="slide", class= "gallery__picture"><%= image_tag "Grade2.jpg", class: "picture"%></div>
-  <div class="gallery__right">
-    <div data-slideshow-target="next", data-action="click->slideshow#next", class=button-arrow>
-      <a class="arrow__element">&#8250;</a>
-    </div>
-  </div>
-</div> 
-<%
-=end%>
-
 <div data-controller="carousel" class="gallery swiper swiper-initialized swiper-horizontal swiper-pointer-events"
     data-carousel-options-value='{
     "pagination": { "el": ".swiper-pagination", 
@@ -25,9 +5,9 @@
     "navigation": { "nextEl": ".swiper-button-next", 
                     "prevEl": ".swiper-button-prev"}}'>
   <div class="swiper-wrapper poop">
-    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "picture2.jpg", class: "picture"%></div>
-    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "Grade1.jpg", class: "picture"%></div>
-    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "Grade2.jpg", class: "picture"%></div>
+    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "gallery/picture2.webp", class: "picture", alt: "ballet picture" %></div>
+    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "gallery/Grade1.webp", class: "picture",alt: "ballet picture" %></div>
+    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "gallery/Grade2.webp", class: "picture", alt: "ballet picture" %></div>
   </div>
   <div class="swiper-pagination"></div>
 

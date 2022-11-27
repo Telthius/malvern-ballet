@@ -6,7 +6,8 @@
     "@hotwired/turbo-rails": "^7.2.4",
     "esbuild": "^0.15.13",
     "sass": "^1.56.0",
-    "stimulus-carousel": "^4.0.0"
+    "stimulus-carousel": "^4.0.0",
+    "stimulus-dropdown": "^2.0.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",

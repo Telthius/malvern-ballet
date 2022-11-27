@@ -36,7 +36,7 @@
   transition: background-color 1000ms linear;
 }
 
-.menu {
+.header-menu {
   display: none;
 
   @include media(tabletAndUp) {

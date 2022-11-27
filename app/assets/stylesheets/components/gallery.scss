@@ -1,8 +1,6 @@
 .gallery {
-
   width: 100%;
   position: relative;
-  background: lightgrey;
   
   @include media(tabletAndUp) {
     width: 1000px;
@@ -11,6 +9,7 @@
 
 .gallery__picture {
   width: 100%;
+  height: 100%;
 }
 
 .gallery__button {
@@ -19,10 +18,6 @@
   @include media(tabletAndUp) {
     display: inline;
   }
-}
-
-.picture {
-  width: 90%
 }
 // Hidden doesn't work on gallery buttons because its incompatible with flexbox -> https://stackoverflow.com/questions/23772673/hidden-property-does-not-work-with-flex-box
 [hidden]{
