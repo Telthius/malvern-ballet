@@ -1,2 +1,8 @@
-Welcome to example.com, <%= @enrolment.name %>
+Info has been requested from <%= @enrolment.name %>
 ===============================================
+
+name: <%= @enrolment.name %>
+email: <%= @enrolment.email %>
+age_of_child: <%= @enrolment.age_of_child %>
+any_prior_experience: <%= @enrolment.any_prior_experience ? "yes" : "no" %>
+comments_and_queries: <%= @enrolment.comments_and_queries %>

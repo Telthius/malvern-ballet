@@ -4,6 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @enrolment.name %></h1>
+    <h1>Info has been requested from <%= @enrolment.name %></h1>
+
+    <p>name: <%= @enrolment.name %></p>
+    <p>email: <%= @enrolment.email %></p>
+    <p>age_of_child: <%= @enrolment.age_of_child %></p>
+    <p>any_prior_experience: <%= @enrolment.any_prior_experience ? "yes" : "no" %></p>
+    <p>comments_and_queries: <%= @enrolment.comments_and_queries %></p>
   </body>
 </html>

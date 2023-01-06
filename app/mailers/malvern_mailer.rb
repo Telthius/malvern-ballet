@@ -4,6 +4,6 @@ class MalvernMailer < ApplicationMailer
 
   def register_interest_email
     @enrolment = params[:enrolment]
-    mail(to: @enrolment.email, subject: 'Mail tester')
+    mail(to: "malvernballetschool@gmail.com", subject: 'Info has been requested')
   end
 end
