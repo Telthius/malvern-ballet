@@ -19,8 +19,8 @@
         <div class="class_details flex col">
           <p class="class_description"><%= @ballet_class.description_for_view %></p>
           <div class="class_description_footer flex">
-            <div class="flex col">
-              <% @ballet_class.costs.each do |cost|%>
+            <div class="flex col jc-fe">
+              <% @ballet_class.costs.order(amount: :asc).each do |cost|%>
                 <div class="flex">
                   <p class="class_price">Cost - $<%= sprintf('%.2f', cost.amount) %></p>
                   <p class="price_description"><%= cost.condition %></p>
@@ -28,7 +28,11 @@
               <% end %>
             </div>
             <div class="flex jc-c ai-fe">
-              <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="enrol_class">Enrol Now</a>
+              <% if @ballet_class.name == "Bootybarre" %>
+                <%= link_to "Book a Class!", bootybarre_path, class: "enrol_class" %>
+              <% elsif  @ballet_class.name != "Open Class" %>
+                <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="enrol_class">Enrol Now</a>
+              <% end %>
             </div>
           </div>
         </div>
