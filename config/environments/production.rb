@@ -105,5 +105,5 @@ Rails.application.configure do
     user_name: Rails.application.credentials.dig(:gmail, :username),
     password: Rails.application.credentials.dig(:gmail, :password),
     authentication: 'plain',
-    e
+  }
 end
