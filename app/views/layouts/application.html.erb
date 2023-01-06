@@ -10,7 +10,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= favicon_link_tag asset_path("favicon.ico") %>
+    <%
+=begin%>
+ <%= favicon_link_tag asset_path("favicon.ico") %> 
+<%
+=end%>
   </head>
 
   <body
