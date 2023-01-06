@@ -4,7 +4,6 @@
 //   'large':  1200px
 // ) !default;
 
-
 // /// Mixin to manage responsive breakpoints
 // /// @param {String} $breakpoint - Breakpoint name
 // /// @require $breakpoints
@@ -16,7 +15,7 @@
 //       @content;
 //     }
 //   }
- 
+
 //   // If the key doesn't exist in the map
 //   @else {
 //     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
@@ -26,6 +25,8 @@
 
 @mixin media($query) {
   @if $query == tabletAndUp {
-    @media (min-width: 50rem) { @content; }
+    @media (min-width: 81rem) {
+      @content;
+    }
   }
 }

@@ -10,11 +10,18 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= favicon_link_tag asset_path("logo.webp") %>
+    <%= favicon_link_tag asset_path("favicon.ico") %>
   </head>
 
-  <body>
+  <body
+  data-controller= "header" 
+  data-header-picturein-class= "logo" 
+  data-header-pictureout-class= "secondary" 
+  data-header-logo-class= "logo-secondary" 
+  data-header-blue-class="header-colour"
+  data-header-underline-class="button-underline">
   <%= yield %>
+  <%= render "shared/footer" %>
   </body>
 </html>
 

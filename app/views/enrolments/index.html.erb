@@ -1,0 +1,26 @@
+<section class="enrol_section flex col" data-header-target="other">
+  <%= render "shared/header" %>
+
+  <div class="enrol_container flex jc-sa">
+
+    <div class="flex jc-c ai-c">
+      <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="enrol_class">Enrol Now</a>
+    </div>
+
+    <div class="flex jc-c ai-c">
+      <a class="parent_portal">Parent portal coming soon</a>
+    </div>
+
+  </div>
+
+  <h1 class="or">Need more information?</h1>
+
+  <div class="form_container"
+  data-controller= "submit" 
+  data-submit-button-class= "button_animate" 
+  data-submit-image-class= "image_animate" >
+    <%= render "form", enrolment: @enrolment %>
+  </div>
+
+  <br>
+</section>

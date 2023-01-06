@@ -1,0 +1,29 @@
+.button {
+  // letter-spacing: 2px;
+  font-family: "JosefinSans";
+  padding: 10px 0px 10px 0px;
+}
+
+.button-main {
+  font-size: var(--font-size-xxl);
+}
+
+.button-main:hover {
+  border-bottom: 1px solid var(--color-text-header);
+}
+
+.button-footer {
+  font-size: var(--font-size-l);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button-mobile-menu:hover {
+  color: white;
+}
+
+.button-underline {
+  border-bottom: 1px solid var(--color-text-header);
+}

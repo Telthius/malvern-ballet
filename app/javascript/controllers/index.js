@@ -2,15 +2,16 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import HeaderController from "./header_controller"
-import TimetableController from "./timetable_controller"
-import Carousel from 'stimulus-carousel'
-import Dropdown from 'stimulus-dropdown'
+import HeaderController from "./header_controller";
+import TimetableController from "./timetable_controller";
+import SubmitController from "./submit_controller";
+import Carousel from "stimulus-carousel";
+import Dropdown from "stimulus-dropdown";
 
-application.register("header", HeaderController)
-application.register("timetable", TimetableController)
-application.register('carousel', Carousel)
-application.register('dropdown', Dropdown)
-
+application.register("header", HeaderController);
+application.register("timetable", TimetableController);
+application.register("submit", SubmitController);
+application.register("carousel", Carousel);
+application.register("dropdown", Dropdown);

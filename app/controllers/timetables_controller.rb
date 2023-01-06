@@ -3,18 +3,13 @@ class TimetablesController < ApplicationController
 
   # GET /timetables or /timetables.json
   def index
-    # @first_term = Timetable.first_term
-    # @second_term = Timetable.second_term
-    # @third_term = Timetable.third_term
-    # @fourth_term = Timetable.fourth_term
-    # active_term = '4'
-    # redirect_to timetable_path(id: active_term)
+
   end
 
   # GET /timetables/1 or /timetables/1.json
   def show
     @timetable_classes = if params[:id] == 'current'
-                           TimetableClasses.new(Timetable.current_timeable)
+                           TimetableClasses.new(Timetable.current_timetable)
                          else
                            TimetableClasses.new(Timetable.current_term_timetable(params[:id]), params[:id])
                          end

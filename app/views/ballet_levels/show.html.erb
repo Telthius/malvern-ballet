@@ -1,0 +1,40 @@
+<section data-header-target="other">
+
+  <%= render "shared/header" %>
+  
+  <div class="back_container flex">
+    <%= link_to ballet_levels_path, class: "flex" do %>
+      <div class="swiper-button-prev back_arrow"></div>
+      <h1 class="back_text">Back to Ballet Classes</h1>
+    <% end %>
+  </div>
+
+  <div class="class_cont flex">
+    <div class="class_picture_cont flex jc-c">
+      <%= image_tag @ballet_class.picture, class: "ballet-class__picture ballet-class__picture-show" %>
+    </div>
+    <div class="class_details_cont">
+      <div class="card_details_cont flex col">
+        <p class="ballet-class__name ballet-class__name-show"><%= @ballet_class.name %></p>
+        <div class="class_details flex col">
+          <p class="class_description"><%= @ballet_class.description_for_view %></p>
+          <div class="class_description_footer flex">
+            <div class="flex col">
+              <% @ballet_class.costs.each do |cost|%>
+                <div class="flex">
+                  <p class="class_price">Cost - $<%= sprintf('%.2f', cost.amount) %></p>
+                  <p class="price_description"><%= cost.condition %></p>
+                </div>
+              <% end %>
+            </div>
+            <div class="flex jc-c ai-fe">
+              <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="enrol_class">Enrol Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

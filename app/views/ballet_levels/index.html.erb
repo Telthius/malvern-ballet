@@ -1,0 +1,20 @@
+<section data-header-target="other">
+
+  <%= render "shared/header" %>
+
+  <div class="classes_cont flex">
+    <% @ballet_classes.each do |ballet_class|%>
+      <div class="ballet-class flex col">
+        <div class="ballet-class__picture-cont">
+          <%= link_to ballet_level_path(id: ballet_class.name) do %>
+            <% if ballet_class.picture.representable? %>
+              <%= image_tag ballet_class.picture, class: "ballet-class__picture" %>
+            <% end %>
+            <div class="ballet-class__name-cont"><p class="ballet-class__name"><%= ballet_class.name %></p></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+</section>

@@ -1,16 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
+# BALLET LEVELS
 mummy = BalletLevel.create!(name: "Mummy and Me", description: "a grade 3 class")
-preschool = BalletLevel.create!(name: "Preschool", description: "a grade 3 class")
+pre_school = BalletLevel.create!(name: "Pre-school", description: "a grade 3 class")
 pre_primary = BalletLevel.create!(name: "Pre-Primary", description: "a grade 4 class")
 primary = BalletLevel.create!(name: "Primary", description: "a grade 3 class")
-grade_1 = BalletLevel.create!(name: "Grade 1", description: "a grade 4 class")
+grade_1 = BalletLevel.create!(name: "Grade 1", description: "Grade 1's work on systematically developing solid foundational classical technique based on the Royal Academy of Dance pedagogy. All classes include strength and conditioning and national character training. \n\n Ages 7+ \n")
 grade_2 = BalletLevel.create!(name: "Grade 2", description: "a grade 3 class")
 grade_3 = BalletLevel.create!(name: "Grade 3", description: "a grade 4 class")
 grade_4 = BalletLevel.create!(name: "Grade 4", description: "a grade 4 class")
@@ -21,12 +14,17 @@ intermediate = BalletLevel.create!(name: "Intermediate", description: "a grade 4
 advanced_foundation = BalletLevel.create!(name: "Advanced Foundation", description: "a grade 4 class")
 booty_barre = BalletLevel.create!(name: "BootyBarre", description: "a grade 4 class")
 
+#COSTS
+grade_1_price_1 = Cost.create!(ballet_level_id: grade_1.id, amount: 275.00, condition: "2 classes per week")
+grade_1_price_2 = Cost.create!(ballet_level_id: grade_1.id, amount: 137.50, condition: "1 class per week (for those not sitting exams)")
 
-timetable_4 = Timetable.create!(term: '4', start_date: DateTime.new(2022, 8, 15), end_date: DateTime.new(2022, 11, 15))
+# TIMETABLES
+timetable_4 = Timetable.create!(term: '4', start_date: DateTime.new(2023, 8, 15), end_date: DateTime.new(2023, 11, 15))
 
 
+#BALLET CLASSES
 mummy_class = BalletClass.create!(ballet_level_id: mummy.id) # (has enrolments)
-preschool_class = BalletClass.create!(ballet_level_id: preschool.id) # (has enrolments)
+preschool_class = BalletClass.create!(ballet_level_id: pre_school.id) # (has enrolments)
 pre_primary_class = BalletClass.create!(ballet_level_id: pre_primary.id) # (has enrolments)
 primary_class = BalletClass.create!(ballet_level_id: primary.id) # (has enrolments)
 grade_1_class = BalletClass.create!(ballet_level_id: grade_1.id) # (has enrolments)
@@ -38,7 +36,7 @@ intermediate_class = BalletClass.create!(ballet_level_id: intermediate.id) # (ha
 advanced_foundation_class = BalletClass.create!(ballet_level_id: advanced_foundation.id) # (has enrolments)
 booty_barre_class = BalletClass.create!(ballet_level_id: booty_barre.id) # (has enrolments)
 
-
+#CLASSTIMES
 ClassTime.create!(timetable_id: timetable_4.id, ballet_class_id: mummy_class.id, day_of_week: "Wednesday", start_time: "10:00am", end_time: "10:20")
 ClassTime.create!(timetable_id: timetable_4.id, ballet_class_id: preschool_class.id, day_of_week: "Wednesday", start_time: "11:00am", end_time: "11:30am")
 ClassTime.create!(timetable_id: timetable_4.id, ballet_class_id: preschool_class.id, day_of_week: "Saturday", start_time: "9:30am", end_time: "10:00am")
@@ -57,3 +55,49 @@ ClassTime.create!(timetable_id: timetable_4.id, ballet_class_id: intermediate_cl
 ClassTime.create!(timetable_id: timetable_4.id, ballet_class_id: intermediate_class.id, day_of_week: "Friday", start_time: "6:15pm", end_time: "7:15pm")
 ClassTime.create!(timetable_id: timetable_4.id, ballet_class_id: advanced_foundation_class.id, day_of_week: "Wednesday", start_time: "7:00pm", end_time: "8:00pm")
 ClassTime.create!(timetable_id: timetable_4.id, ballet_class_id: advanced_foundation_class.id, day_of_week: "Saturday", start_time: "12:00pm", end_time: "1:00pm")
+
+# ATTACH BALLET LEVEL PICTURES
+mummy.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "mummyandme.webp")), filename: 'mummyandme.webp')
+pre_school.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "preschool.webp")), filename: 'preschool.webp')
+pre_primary.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "preprimary.webp")), filename: 'pre_primary.webp')
+primary.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "primary.webp")), filename: 'primary.webp')
+grade_1.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "grade1.webp")), filename: 'grade1.webp')
+grade_2.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "grade2.webp")), filename: 'grade2.webp')
+grade_3.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "grade3.webp")), filename: 'grade3.webp')
+grade_4.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "grade4.webp")), filename: 'grade4.webp')
+grade_5.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "grade5.webp")), filename: 'grade5.webp')
+grade_6.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "grade6.webp")), filename: 'grade6.webp')
+intermediate_foundation.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "inter-found.webp")), filename: 'inter-found.webp')
+intermediate.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "intermediate.webp")), filename: 'intermediate.webp')
+advanced_foundation.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "adv-found.webp")), filename: 'adv-found.webp')
+booty_barre.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "bootybarre.webp")), filename: 'bootybarre.webp')
+
+#GALLERY
+my_gallery = Gallery.create!(title: "homepage gallery")
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo1.webp")), filename: 'photo1.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo2.webp")), filename: 'photo2.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo3.webp")), filename: 'photo3.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo4.webp")), filename: 'photo4.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo5.webp")), filename: 'photo5.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo6.webp")), filename: 'photo6.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo7.webp")), filename: 'photo7.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo8.webp")), filename: 'photo8.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo9.webp")), filename: 'photo9.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo10.webp")), filename: 'photo10.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo11.webp")), filename: 'photo11.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo12.webp")), filename: 'photo12.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo13.webp")), filename: 'photo13.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo14.webp")), filename: 'photo14.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo15.webp")), filename: 'photo15.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo16.webp")), filename: 'photo16.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo17.webp")), filename: 'photo17.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo18.webp")), filename: 'photo18.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo19.webp")), filename: 'photo19.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo20.webp")), filename: 'photo20.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo21.webp")), filename: 'photo21.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo22.webp")), filename: 'photo22.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo23.webp")), filename: 'photo23.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo24.webp")), filename: 'photo24.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo25.webp")), filename: 'photo25.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo26.webp")), filename: 'photo26.webp')
+my_gallery.pictures.attach(io: File.open(Rails.root.join("app", "assets", "images", "gallery", "photo27.webp")), filename: 'photo27.webp')

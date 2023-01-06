@@ -1,13 +1,6 @@
-<section  
-id= "timetable" 
-class= "flex col" 
-data-controller= "header" 
-data-header-pictureout-class= "secondary" 
-data-header-logo-class= "logo-secondary" 
-data-header-blue-class="header-colour"
-data-header-underline-class="button-underline">
+<section  id= "timetable" class= "timetables flex col" data-header-target="other">
   <%= render "shared/header" %>
-  <div data-header-target="other" class="year-cont flex jc-c">
+  <div class="year-cont flex jc-c">
     <a class=year><%= Date.current.year %></a>
   </div>
   <div class="term-cont flex"

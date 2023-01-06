@@ -1,0 +1,53 @@
+<%= form_with(model: enrolment) do |form| %>
+
+  <h1 class="form_title">Register your interest!</h1>
+
+  <div class="form_fields flex col jc-c">
+    <div class="flex field jc-sb ai-c"> 
+      <%= form.label :name, "Name"%>
+      <%= form.text_field :name, class: "input_field"%>
+    </div>
+
+    <div class="flex field jc-sb ai-c"> 
+      <%= form.label :email, "Email"%>
+      <%= form.text_field :email, class: "input_field"%>
+    </div>
+
+    <div class="flex field jc-sb ai-c"> 
+      <%= form.label :age_of_child, "Age of dancer"%>
+      <%= form.number_field :age_of_child, in: 1..100, class: "input_field" %>
+    </div>
+
+    <div class="flex field jc-sb ai-c"> 
+      <%= form.label :any_prior_experience, "Prior dance experience?"%>
+      <%= form.check_box :any_prior_experience, class: "input_field" %>
+    </div>
+
+    <div class="flex field jc-sb ai-c"> 
+      <%= form.label :comments_and_queries, "Question or comments"%>
+      <%= form.text_area :comments_and_queries, size: "60x10", class: "comments_field input_field" %>
+    </div>
+
+    <div class="flex field jc-c ai-c submit_cont"> 
+      <div data-submit-target= "button" class="btn flex jc-c ai-c" >
+        <img data-submit-target= "image" class="submit-img" src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="42" width="62">
+        <%= form.submit "Submit", id: "form_submit", class:"form-submit success_remove", data: { submit_target: "submit" }%>
+      </div>
+    </div>
+    
+  </div>
+
+
+
+  <div data-submit-target= "error" class="form_errors">
+    <% if enrolment.errors.any? %>
+      <div id= "errors" class="errors success_remove" style="color: #990D35">
+        <ul>
+          <% enrolment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% end %>

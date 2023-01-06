@@ -1,3 +1,7 @@
+.timetables {
+  min-height: 100%;
+}
+
 .table-cont {
   @include media(tabletAndUp) {
     flex-direction: row;
@@ -20,6 +24,7 @@
   padding: 1%;
   font-family: "open-light";
   font-size: 1.5rem;
+  transition: 0.3s;
 }
 
 .term:hover {
@@ -29,6 +34,7 @@
 .term-box {
   font-size: 2rem;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .timetable {
@@ -51,5 +57,12 @@
   justify-content: center;
 }
 .empty {
-  height: 20px
+  height: 20px;
+}
+
+.not_found {
+  position: relative;
+  font-family: "open-light";
+  font-size: var(--font-size-xl);
+  height: 150px;
 }

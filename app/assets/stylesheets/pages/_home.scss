@@ -10,7 +10,7 @@
 
 .home__lower {
   height: 50%;
-  background-color: #7CC6FE;
+  background-color: #7cc6fe;
   z-index: 1;
 }
 
@@ -19,10 +19,43 @@
   height: 100%;
 }
 
+.card {
+  display: flex;
+  margin: 5%;
+  flex-direction: column;
+  align-items: center;
+
+  @include media(tabletAndUp) {
+    flex-direction: row;
+  }
+}
+
+.card__picture {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  border: 3px solid #5e548e;
+
+  @include media(tabletAndUp) {
+    height: 400px;
+    width: 400px;
+    padding-top: 0%;
+  }
+}
+
+.card__description {
+  margin-top: 30px;
+  margin-left: 5%;
+  @include media(tabletAndUp) {
+    margin-top: 0px;
+  }
+}
+
 .portrait__container {
   width: 100%;
   height: 300px;
-  position: relative
+  position: relative;
 }
 
 .portrait {
@@ -37,7 +70,7 @@
 }
 
 .register__container {
-  background-color: #E0B1CB;
+  background-color: #e0b1cb;
   width: 100%;
 }
 
@@ -49,158 +82,62 @@
 }
 
 .register__button {
-  font-family: var(--font-family-primary);
+  font-family: var(--font-family-secondary);
   color: #333333;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transform:translateY(50%);
-  background-color: #E0B1CB;
+  transform: translateY(50%);
+  background-color: #e0b1cb;
   border: 2px solid black;
   border-top: none;
   border-bottom: none;
-  font-weight: bold;
+  font-weight: normal;
   font-size: var(--font-size-xxl);
   z-index: 1;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .register__button:hover {
-    color: white;
-  }
+  color: white;
+}
 
 .landscape__container {
   width: 100%;
 }
 
-.form__container {
-  // background-color: #e7bbe3;
-  flex: 1;
+.vertical_line {
+  display: none;
+  @include media(tabletAndUp) {
+    display: block;
+    left: 900px;
+    position: absolute;
+    height: 719.3px;
+    border-left: 1px solid black;
+  }
 }
 
+.horizontal_line {
+  width: 100%;
+  margin-top: 50px;
+  @include media(tabletAndUp) {
+    margin-top: 0px;
+    display: block;
+    border-top: 1px solid black;
+    width: 1000px;
+  }
+}
 
+.quote_cont {
+  min-height: 100px;
+}
 
-
-// #upper-cont {
-//   display: flex;
-//   height: 50%;
-//   z-index:-1;
-//   background-color: #FFFFFF;
-// }
-
-// #upper-left {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   width: 50%;
-
-// }
-
-// #upper-right {
-//   display: flex;
-//   flex-direction: column;
-//   width: 50%;
-// }
-
-// #lower-cont {
-//   display: flex;
-//   height: 50%;
-//   background-color: #7CC6FE;
-//   z-index: -1;
-// }
-
-// #lower-left {
-//   display: flex;
-//   justify-content: flex-end;
-//   width: 50%;
-// }
-
-// #lower-right {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-content: center;
-//   width: 50%;
-// }
-
-// // .logo {
-// //   align-self: flex-start;
-// //   width: 20%;
-// //   margin-top: 4%;
-// //   margin-left: 8%;
-// // }
-
-// #heading {
-//   position: relative;
-//   display: flex;
-//   justify-content: flex-end;
-//   width: 100%;
-//   z-index: 100;
-// }
-
-// #malvern {
-//   font-family: north-wave;
-//   font-size: 8vw;
-//   /* text-align: center; */
-//   letter-spacing: 2px;
-//   margin-bottom: -7%;
-//   font-weight: normal;
-//   margin-top: 0;
-// }
-
-// #ballet {
-//   font-family: JosefinSans;
-//   font-size: 1.5vw;
-//   letter-spacing: 0.5vw;
-//   color: #FFFFFF;
-//   margin-top: 1%;
-// }
-
-// #menu-bar {
-//   position: relative;
-//   display: flex;
-//   justify-content: space-evenly;
-//   align-content: center;
-//   text-align: center;
-//   width: 100%;
-//   margin-top: 5%;
-// }
-
-// // .button {
-// //   font-family: JosefinSans-reg;
-// //   color: #333333;
-// //   font-size: 1.2vw;
-// //   letter-spacing: 2px;
-// //   cursor: pointer;
-// // }
-
-// .button:hover {
-//   text-decoration: underline;
-// }
-
-// /* #motto {
-//   position: absolute;
-//   font-family: JosefinSans;
-//   color: #333333;
-//   font-size: 2vw;
-//   letter-spacing: 2px;
-//   text-align: center;
-//   font-weight: normal;
-//   left:0;
-//   right:0;
-//   margin-left:auto;
-//   margin-right:auto;
-//   bottom: 0;
-//   font-weight: bold;
-// } */
-
-// #banner {
-//   width: 100%;
-//   font-weight: normal;
-
-// }
-// #banner-pic
-// {
-//   width: 100%;
-//   position: relative;
-// }
+.inspiring_quote {
+  margin-top: 30px;
+  margin-left: 30px;
+  position: relative;
+  font-family: var(--font-family-primary);
+  @include media(tabletAndUp) {
+    left: 900px;
+  }
+}

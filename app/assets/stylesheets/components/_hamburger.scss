@@ -3,7 +3,8 @@ h2 {
   text-align: center;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
@@ -17,10 +18,10 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #00BAF0;
+  background-color: #00baf0;
   background: linear-gradient(to left, #f46b45, #eea849);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #FFF;
+  color: #fff;
   height: 50px;
   padding: 1em;
 }
@@ -31,6 +32,7 @@ html, body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  z-index: 8;
 }
 
 .menu > li {
@@ -65,12 +67,12 @@ html, body {
 }
 
 .menu-button::before {
-  content: '';
+  content: "";
   margin-top: -8px;
 }
 
 .menu-button::after {
-  content: '';
+  content: "";
   margin-top: 8px;
 }
 
@@ -88,7 +90,7 @@ html, body {
   transform: rotate(-405deg);
 }
 
-@media (max-width: 50rem) {
+@media (max-width: 81rem) {
   .menu-button-container {
     display: flex;
   }

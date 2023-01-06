@@ -4,10 +4,12 @@
                     "dynamicBullets": "true" },
     "navigation": { "nextEl": ".swiper-button-next", 
                     "prevEl": ".swiper-button-prev"}}'>
-  <div class="swiper-wrapper poop">
-    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "gallery/picture2.webp", class: "picture", alt: "ballet picture" %></div>
-    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "gallery/Grade1.webp", class: "picture",alt: "ballet picture" %></div>
-    <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag "gallery/Grade2.webp", class: "picture", alt: "ballet picture" %></div>
+  <div class="swiper-wrapper">
+    <% @gallery.pictures.each do |picture|%>
+      <% if picture.representable? %>
+        <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag picture, class: "picture", alt: "ballet picture gallery" %></div>
+      <% end %>
+    <% end %>
   </div>
   <div class="swiper-pagination"></div>
 

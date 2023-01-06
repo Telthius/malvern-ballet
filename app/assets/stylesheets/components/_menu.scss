@@ -1,0 +1,11 @@
+.header-menu {
+  display: none;
+  justify-content: space-around;
+
+  @include media(tabletAndUp) {
+    display: flex;
+    width: 600px;
+    align-self: center;
+    font-family: var(--font-family-secondary);
+  }
+}
