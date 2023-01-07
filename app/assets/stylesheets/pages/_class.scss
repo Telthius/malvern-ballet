@@ -41,10 +41,21 @@
   margin-top: 40px;
   font-weight: bold;
   justify-content: space-between;
+  @include media(tabletAndUp) {
+    flex-direction: row;
+  }
+}
+
+.class_pricing {
+  margin-bottom: 40px;
+  @include media(tabletAndUp) {
+    margin-bottom: 0px;
+  }
 }
 
 .class_price {
   font-size: var(--font-size-l);
+  min-width: 150px;
 }
 
 .price_description {

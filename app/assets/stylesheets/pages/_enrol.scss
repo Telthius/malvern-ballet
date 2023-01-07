@@ -8,11 +8,14 @@
 }
 
 .enrol_container {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-m);
   margin-top: 50px;
   margin-bottom: 50px;
   a {
     padding: 10px 20px 10px 20px;
+  }
+  @include media(tabletAndUp) {
+    font-size: var(--font-size-xl);
   }
 }
 
