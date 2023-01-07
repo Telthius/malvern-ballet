@@ -13,7 +13,7 @@ intermediate_foundation = BalletLevel.create!(name: "Intermediate Foundation", d
 intermediate = BalletLevel.create!(name: "Intermediate", description: "This is the second of the vocational levels which focus on developing aspiring dancers in their technique, artistry, and control. This grade continues to develop pointe work and free enchainment work. All classes are based on the Royal Academy of Dance syllabus pedagogy. All classes include strength and conditioning. Included in this is an occasional class with a live pianist. \n\n Ages 12+ \n")
 advanced_foundation = BalletLevel.create!(name: "Advanced Foundation", description: "Prerequisite - must have passed RAD Intermediate. \n\n Advanced Foundation is the third of the vocational levels which focus on developing aspiring dancers in their technique, artistry, and control at an advanced level. This grade works on pointe work at an advanced level and continues to include free enchainment work. All classes are based on the Royal Academy of Dance syllabus pedagogy. All classes include strength and conditioning. Included in this is an occasional class with a live pianist. \n\n Ages 13+ \n")
 booty_barre = BalletLevel.create!(name: "Bootybarre", description: "Booty Barre is a fun, energetic work out that fuses techniques from dance, Pilates and yoga that will tone, define and chisel the whole body! BootyBarre is the perfect combinations of strength and flexibility with and added cardiovascular element utilising the barre. This is an internationally renowned fitness program designed to accomodate most fitness levels, while being low impact but high energy. Taught by a certified Instructor. \n\n Ages 15+ \n")
-open_level = BalletLevel.create!(name: "Open Class", description: "")
+open_level = BalletLevel.create!(name: "Open Class", description: "An open class is an additional class that has predominantly unset work ( the teacher will design new exercises for each class as opposed to syllabus work). This class is an important part of dance in learning to pick new exercises up quickly and accurately, while still developing technique and strength. \n\n These classes are available to those who have enroled in a class Grade 5 or above.\n")
 
 #COSTS
 mummy_price_1 = Cost.create!(ballet_level_id: mummy.id, amount: 65.00, condition: "1 class per week for an 8 week term")
@@ -57,7 +57,7 @@ booty_barre_class = BalletClass.create!(ballet_level_id: booty_barre.id) # (has 
 open_class = BalletClass.create!(ballet_level_id: open_level.id) # (has enrolments)
 
 #CLASSTIMES
-ClassTime.create!(timetable_id: timetable_1.id, ballet_class_id: mummy_class.id, day_of_week: "Wednesday", start_time: "10:00am", end_time: "10:20am")
+ClassTime.create!(timetable_id: timetable_1.id, ballet_class_id: mummy_class.id, day_of_week: "Wednesday", start_time: "10:00am", end_time: "10:20")
 ClassTime.create!(timetable_id: timetable_1.id, ballet_class_id: preschool_class.id, day_of_week: "Wednesday", start_time: "11:00am", end_time: "11:30am")
 ClassTime.create!(timetable_id: timetable_1.id, ballet_class_id: preschool_class.id, day_of_week: "Saturday", start_time: "10:00am", end_time: "10:30am")
 ClassTime.create!(timetable_id: timetable_1.id, ballet_class_id: primary_class.id, day_of_week: "Monday", start_time: "3:30pm", end_time: "4:15pm")
