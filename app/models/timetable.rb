@@ -31,7 +31,7 @@ class Timetable < ApplicationRecord
   end
 
   def classes_on_day(day)
-    class_times.where(day_of_week: day)
+    class_times.where(day_of_week: day).order(start_time: :asc)
   end
 
   private_class_method :current_year
