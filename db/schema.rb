@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_090225) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_08_052955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,10 +60,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_090225) do
     t.bigint "ballet_class_id"
     t.bigint "timetable_id"
     t.string "day_of_week", null: false
-    t.string "start_time", null: false
-    t.string "end_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "start_time"
+    t.time "end_time"
     t.index ["ballet_class_id"], name: "index_class_times_on_ballet_class_id"
     t.index ["timetable_id"], name: "index_class_times_on_timetable_id"
   end
