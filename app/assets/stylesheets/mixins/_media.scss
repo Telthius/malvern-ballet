@@ -28,5 +28,9 @@
     @media (min-width: 81rem) {
       @content;
     }
+  } @else if $query == phoneAndUp {
+    @media (min-width: 30rem) {
+      @content;
+    }
   }
 }

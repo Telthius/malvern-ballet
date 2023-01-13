@@ -1,7 +1,3 @@
-.timetables {
-  min-height: 100%;
-}
-
 .table-cont {
   @include media(tabletAndUp) {
     flex-direction: row;

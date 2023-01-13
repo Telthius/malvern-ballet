@@ -61,8 +61,10 @@ footer {
 }
 
 .social_auth_cont {
-  @include media(tabletAndUp) {
+  display: none;
+  @include media(phoneAndUp) {
     margin-right: 2%;
+    display: block;
   }
 }
 

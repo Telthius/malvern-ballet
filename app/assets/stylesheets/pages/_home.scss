@@ -1,7 +1,3 @@
-.home__cont {
-  z-index: -5;
-}
-
 .home__upper {
   position: relative;
   height: 50%;
@@ -15,8 +11,12 @@
 }
 
 .banner-pic {
+  display: none;
   width: 100%;
   height: 100%;
+  @include media(tabletAndUp) {
+    display: block;
+  }
 }
 
 .card {
