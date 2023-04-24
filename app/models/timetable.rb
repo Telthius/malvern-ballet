@@ -11,9 +11,9 @@ class Timetable < ApplicationRecord
   class << self
     def current_timetable
       year = current_year
-      current_date = Date.today
+      current_date = Date.today+1
       current_timetable = where('extract(year  from start_date) = ?', year)
-                          .where('start_date < ?', current_date).order('start_date desc').first
+                          .where('start_date < ?', (current_date+1)).order('start_date desc').first
 
       return current_term_timetable(1) unless current_timetable
 
