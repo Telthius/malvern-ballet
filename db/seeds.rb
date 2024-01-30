@@ -14,6 +14,7 @@ intermediate = BalletLevel.create!(name: "Intermediate", description: "This is t
 advanced_foundation = BalletLevel.create!(name: "Advanced Foundation", description: "Prerequisite - must have passed RAD Intermediate. \n\n Advanced Foundation is the third of the vocational levels which focus on developing aspiring dancers in their technique, artistry, and control at an advanced level. This grade works on pointe work at an advanced level and continues to include free enchainment work. All classes are based on the Royal Academy of Dance syllabus pedagogy. All classes include strength and conditioning. Included in this is an occasional class with a live pianist. \n\n Ages 13+ \n")
 booty_barre = BalletLevel.create!(name: "Bootybarre", description: "Booty Barre is a fun, energetic work out that fuses techniques from dance, Pilates and yoga that will tone, define and chisel the whole body! BootyBarre is the perfect combinations of strength and flexibility with and added cardiovascular element utilising the barre. This is an internationally renowned fitness program designed to accomodate most fitness levels, while being low impact but high energy. Taught by a certified Instructor. \n\n Ages 15+ \n")
 open_level = BalletLevel.create!(name: "Open Class", description: "An open class is an additional class that has predominantly unset work ( the teacher will design new exercises for each class as opposed to syllabus work). This class is an important part of dance in learning to pick new exercises up quickly and accurately, while still developing technique and strength. \n\n These classes are available to those who have enroled in a class Grade 5 or above.\n")
+discovering_rep = BalletLevel.create!(name: "Discovering Repertoire", description: "Discovering Repertoire is a classical ballet performance programme designed by the Royal Academy of Dance. Uniquely, the programme includes well-known classical repertoire, meaning students will learn and dance choreography that they have seen on stage, set to music that they know and love. Suitable for students from age 12 through to adult, the three levels cater for beginners, those with some prior ballet experience, as well as the more advanced dancer.\n")
 
 #COSTS
 mummy_price_1 = Cost.create!(ballet_level_id: 1, amount: 65.00, condition: "1 class per week for an 8 week term")
@@ -35,6 +36,7 @@ intermediate_foundation_price_1 = Cost.create!(ballet_level_id: 11, amount: 365.
 intermediate_price_1 = Cost.create!(ballet_level_id: 12, amount: 365.00, condition: "2 classes per week + 1 open class")
 advanced_foundation_price_1 = Cost.create!(ballet_level_id: 13, amount: 365.00, condition: "2 classes per week + 1 open class")
 booty_barre_price_1 = Cost.create!(ballet_level_id: 14, amount: 16.00, condition: "per class")
+discovering_rep_1 = Cost.create!(ballet_level_id: 16, amount: 365.00, condition: "2 classes per week + 1 open class")
 
 # TIMETABLES
 timetable_1 = Timetable.create!(term: '1', start_date: DateTime.new(2023, 2, 17), end_date: DateTime.new(2023, 4, 6))
@@ -54,6 +56,7 @@ intermediate_class = BalletClass.create!(ballet_level_id: 12)
 advanced_foundation_class = BalletClass.create!(ballet_level_id: 13)
 booty_barre_class = BalletClass.create!(ballet_level_id: 14)
 open_class = BalletClass.create!(ballet_level_id: 15)
+discovering_rep_class = BalletClass.create!(ballet_level_id: 16)
 
 #CLASSTIMES
 ClassTime.create!(timetable_id: Timetable.first.id, ballet_class_id: 2, day_of_week: "Saturday", start_time: "10:00am", end_time: "10:30am")
@@ -96,6 +99,7 @@ intermediate.picture.attach(io: File.open(Rails.root.join("app", "assets", "imag
 advanced_foundation.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "adv-found.webp")), filename: 'adv-found.webp')
 booty_barre.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "bootybarre.webp")), filename: 'bootybarre.webp')
 open_level.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "open.webp")), filename: 'open.webp')
+discovering_rep.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "classes", "discovering-rep.webp")), filename: 'adv-found.webp')
 
 #GALLERY
 my_gallery = Gallery.create!(title: "homepage gallery")
