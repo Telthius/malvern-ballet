@@ -12,6 +12,8 @@ export default class extends Controller {
     "classes",
     "bootybarre",
     "menu",
+    "enrol",
+    "admin"
   ];
   static classes = ["logo", "blue", "pictureout", "underline"];
 

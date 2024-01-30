@@ -10,19 +10,20 @@ class Timetable < ApplicationRecord
 
   class << self
     def current_timetable
-      year = current_year
       current_date = Date.today+1
-      current_timetable = where('extract(year  from start_date) = ?', year)
-                          .where('start_date < ?', (current_date+1)).order('start_date desc').first
+      current_timetable = current_years_timetables.where('start_date < ?', (current_date+1)).order('start_date desc').first
 
       return current_term_timetable(1) unless current_timetable
 
       current_timetable
     end
 
+    def current_years_timetables
+      where('extract(year  from start_date) = ?', current_year)
+    end
+
     def current_term_timetable(term)
-      year = current_year
-      Timetable.where('extract(year  from start_date) = ?', year).where(term:).first
+      current_years_timetables.where(term:).first
     end
 
     def current_year

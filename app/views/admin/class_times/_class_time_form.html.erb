@@ -1,0 +1,37 @@
+<%= form_with(model: [:admin, class_time]) do |form| %>
+
+  <div>class name</div>
+  <%= form.collection_select(:ballet_level_id, BalletLevel.all, :id, :name, prompt: true) %>
+  <%= form.fields_for :class_times do |t| %>
+    <div>class times</div>
+    <%= t.collection_select(:timetable_id, Timetable.all, :id, :term, prompt: true) %>
+    <li>
+      <%= t.label :day_of_week %>
+      <%= t.select :day_of_week, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %>
+    </li>
+    <li>
+      <%= t.label :start_time %>
+      <%= t.time_field :start_time %>
+    </li>
+    <li>
+      <%= t.label :end_time %>
+      <%= t.time_field :end_time %>
+    </li>
+  <% end %>
+
+  <% if ballet_class.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ballet_class.errors.count, "error") %> prohibited this timetable from being saved:</h2>
+
+      <ul>
+        <% ballet_class.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

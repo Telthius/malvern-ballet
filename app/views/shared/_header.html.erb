@@ -11,6 +11,7 @@
     </div>
   </label>
   <ul class="menu">
+    <li class="flex ai-c"><%= link_to "Admin", admin_ballet_classes_path, class: "button button-mobile-menu" %></li>
     <li class="flex ai-c"><%= link_to "Enrol", enrolments_path, class: "button button-mobile-menu" %></li>
     <li class="flex ai-c"><%= link_to "Classes", ballet_levels_path(), class: "button button-mobile-menu" %></li>
     <li class="flex ai-c"><%= link_to "Timetable", timetable_path(id: 'current'), class: "button button-mobile-menu" %></li>
@@ -19,7 +20,8 @@
 
   <div class="main menu_header_cont">
     <div class= "header-menu jc-sb ai">
-      <h2><%= link_to "Enrol", enrolments_path, class: "button button-main", data: { header_targets: ["menu", "classes"] } %></h2>
+      <h2><%= link_to "Admin", admin_ballet_classes_path, class: "button button-main", data: { header_targets: ["menu", "admin"] } %></h2>
+      <h2><%= link_to "Enrol", enrolments_path, class: "button button-main", data: { header_targets: ["menu", "enrol"] } %></h2>
       <h2><%= link_to "Classes", ballet_levels_path(), class: "button button-main", data: { header_targets: ["menu", "classes"] } %></h2>
       <h2><%= link_to "Timetable", timetable_path(id: 'current'), class: "button button-main", data: { header_targets: ["menu", "timetable"] } %></h2>
       <h2><%= link_to "BootyBarre", bootybarre_path, class: "button button-main", data: { header_targets: ["menu", "bootybarre"] } %></h2>

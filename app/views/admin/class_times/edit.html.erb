@@ -1,0 +1,10 @@
+<h1>New ballet_class</h1>
+
+<%= turbo_frame_tag @ballet_class do %>
+  <%= render "form", ballet_class: @ballet_class %>
+<% end %>
+<br>
+
+<div>
+  <%= link_to "Back to ballet_classes", admin_ballet_class_path(@ballet_class) %>
+</div>

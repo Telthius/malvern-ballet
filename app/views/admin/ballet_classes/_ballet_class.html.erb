@@ -1,0 +1,16 @@
+
+
+<%= turbo_frame_tag ballet_class do %>
+  <div class="admin-item flex jc-sb">
+    <%= link_to ballet_class.class_name, admin_ballet_class_path(ballet_class), class: "admin-item-name" %>
+    <div class="ballet-class__actions flex">
+      <%= button_to "",
+                    admin_ballet_class_path(ballet_class),
+                    method: :delete,
+                    class: "admin-button touch delete" %>
+      <%= link_to "",
+                  edit_admin_ballet_class_path(ballet_class),
+                  class: "admin-button touch edit" %>
+    </div>
+  </div>
+<% end %>

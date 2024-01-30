@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home', to: 'home#index'
 
+  namespace :admin do
+    resources :ballet_classes do 
+      resources :class_times, except: [:index, :show]
+    end
+  end
+
   get 'bootybarre', to: 'bootybarre#index'
 
   resources 'enrolments'

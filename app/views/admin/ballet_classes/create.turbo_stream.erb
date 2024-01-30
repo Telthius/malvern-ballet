@@ -1,0 +1,7 @@
+<%= turbo_stream.prepend "ballet_classes", partial: "admin/ballet_classes/ballet_class", locals: { ballet_class: @ballet_class } %>
+<%
+=begin%>
+ <%= turbo_stream.update BalletClass.new, "" %> 
+<%
+=end%>
+<%= render_turbo_stream_flash_messages %>
