@@ -1,0 +1,113 @@
+//* ----------------------------
+.countdown-sec1 {
+    position: relative;
+    z-index: 5;
+}
+
+.countdown-area {
+    max-width: 1068px;
+    display: block;
+    margin: auto;
+
+    .title-area {
+        display: flex;
+        gap: 30px;
+
+        @include md {
+            display: block;
+        }
+
+        .sec-title {
+            text-align: right;
+
+            @include md {
+                text-align: left;
+            }
+
+            @include sm {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.sec-text2 {
+    max-width: 430px;
+
+    @include sm {
+        text-align: center;
+        display: block;
+        margin: auto;
+    }
+}
+
+.timer-counter {
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+    margin-bottom: 55px;
+
+    @include sm {
+        grid-template-columns: auto auto;
+    }
+
+    li {
+        position: relative;
+        list-style: none;
+
+        &:not(:last-child) {
+            &:before {
+                content: ":";
+                position: absolute;
+                right: -4%;
+                top: 24%;
+                font-size: 55px;
+                color: #6B2AE6;
+                font-weight: 700;
+
+                @include sm {
+                    display: none;
+                }
+            }
+
+        }
+
+        .count-number {
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 44px;
+            text-transform: capitalize;
+            color: $white-color;
+
+            @include xs {
+                font-size: 44px;
+                line-height: 44px;
+            }
+        }
+
+        .count-name {
+            font-family: $title-font;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 54px;
+            text-transform: uppercase;
+            color: #6B2AE6;
+
+        }
+    }
+}
+
+.newsletter-form {
+    &.style2 {
+        justify-content: center;
+        max-width: 610px;
+        margin: auto;
+
+        .th-btn {
+            @include vxs {
+                min-width: 100%; 
+            }
+        }
+    }
+}

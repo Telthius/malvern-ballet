@@ -1,0 +1,385 @@
+/* dance sec -------------------------*/
+.dance-sec-3 {
+    margin: 0 150px;
+
+    @include xxl {
+        margin: 0;
+    }
+
+    .about-text {
+        @include sm {
+            text-align: center;
+        }
+    }
+}
+
+.dance-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.dance-image {
+    @media(max-width: 1024px) {
+        margin-bottom: 30px;
+    }
+}
+
+.dance-image2 {
+    @include md {
+        margin-bottom: 30px;
+    }
+}
+
+.danza-menu {
+    margin: 0;
+}
+
+/* dance Box -------------------------*/
+.dance-box {
+    position: relative;
+    border: 1px solid $gray-color;
+    border-radius: 20px;
+    padding: 30px;
+
+    &:hover {
+        .dance-box {
+            &_content {
+                &:after {
+                    border-color: $theme-color;
+                }
+
+                .th-btn {
+                    &.gold-border-btn {
+                        color: $white-color;
+                        background-color: $theme-color;
+                        border: 1px solid $theme-color;
+                    }
+
+                }
+            }
+        }
+    }
+
+    &_img {
+        border-radius: 20px;
+
+        img {
+            border-radius: 20px;
+        }
+    }
+
+    &_content {
+        background-color: $white-color;
+        padding: 30px 30px 30px 65px;
+        box-shadow: 0px 10px 15px rgba(229, 229, 229, 0.3);
+        position: absolute;
+        top: 22%;
+        right: 30px;
+        border-radius: 20px 20px 20px 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: 100% 100%;
+        transition: all 0.4s ease-in-out;
+
+        @include xs {
+            top: 40%;
+            right: 6px;
+        }
+
+        @media(max-width: 400px) {
+            display: none;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            border-bottom: 12px solid $gray-color;
+            border-radius: 20px 20px 20px 20px;
+            box-shadow: 0px 10px 15px rgba(229, 229, 229, 0.3);
+            width: 100%;
+            height: 100%;
+            left: 0;
+            transition: all 0.4s ease-in-out;
+            z-index: -1;
+        }
+
+    }
+
+    &_title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+        color: $title-color;
+        margin-bottom: 13px;
+
+        a {
+            color: inherit;
+
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+
+    &_text {
+        max-width: 265px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: $body-color;
+        margin-bottom: 23px;
+    }
+
+    &.left {
+        text-align: right;
+
+        .dance-box {
+            &_text {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.dance-sec {
+    .container {
+        @include lg {
+            max-width: 1120px;
+        }
+
+        @include md {
+            max-width: 720px;
+        }
+    }
+
+    @include sm {
+        .title-area {
+            padding: 0 20px;
+        }
+    }
+
+    @include vxs {
+        .title-area {
+            padding: 0 5px;
+        }
+    }
+}
+
+.dance-btn {
+    @include sm {
+        text-align: center;
+    }
+
+    a {
+        margin-right: 20px;
+
+        @include xs {
+            margin-right: 10px;
+        }
+
+        @media(max-width:390px) {
+            margin-top: 10px;
+        }
+    }
+}
+
+.dance-button {
+    margin: 0 150px;
+
+    @include xxl {
+        margin: 0;
+    }
+}
+
+/* dance box 2 start ---------------------------*/
+.dance-box2 {
+    position: relative;
+    background-color: $white-color;
+    border-top: 5px solid $theme-color;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+
+    @include lg {
+        padding: 30px;
+    }
+
+    .box-icon {
+        position: absolute;
+        top: -45px;
+        left: calc(50% - 40px);
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        background: linear-gradient(#FF94A6 50%, $white-color 50%);
+        box-shadow: 0px 10px 15px rgba(229, 229, 229, 0.3);
+        border-radius: 50%;
+        z-index: 9;
+        transition: 0.4s ease-in-out;
+
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background-color: $theme-color;
+            z-index: -1;
+            transition: 0.4s ease-in-out;
+        }
+
+    }
+
+    .box-title {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 7px;
+    }
+
+    .box-text {
+        margin-bottom: -0.4rem;
+    }
+
+    &:hover {
+        .box-icon {
+            background: linear-gradient($theme-color 50%, $white-color 50%);
+
+            &:before {
+                background-color: $title-color;
+            }
+        }
+    }
+}
+
+.dance-image {
+    img {
+        border-radius: 20px;
+    }
+}
+
+.dance-list {
+    border-radius: 10px;
+    background: $white-color;
+    padding: 30px;
+    box-shadow: 0px 4px 5.1px 0px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media(max-width: 480px) {
+        display: block;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    &.style2 {
+        .box-title {
+            margin-bottom: 4px;
+        }
+
+        .th-btn {
+            padding: 9px 30px;
+        }
+
+        &:hover {
+            .box-title {
+                color: $theme-color;
+            }
+
+            .th-btn {
+                background-color: $theme-color;
+                color: $white-color;
+            }
+        }
+    }
+
+    .box-title {
+        font-size: 24px;
+        margin-bottom: 6px;
+        transition: 0.4s ease;
+
+        @include vxs {
+            font-size: 20px;
+        }
+    }
+
+    .box-price {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        color: $theme-color;
+        margin-bottom: -0.4rem;
+
+        @media(max-width: 480px) {
+            margin-bottom: 18px;
+        }
+
+        .duration {
+            color: $body-color;
+        }
+    }
+}
+
+/*Dance Single -------------------------------------*/
+
+
+.dance-single-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+
+    @media(max-width: 1399px) {
+        display: block;
+    }
+}
+
+.dance-img {
+    img {
+        border-radius: 20px;
+    }
+}
+
+.dance-single-content {
+    max-width: 451px;
+
+    @media(max-width: 1399px) {
+        max-width: 100%;
+    }
+}
+
+.dance-title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    color: $title-color;
+    margin-bottom: 18px;
+}
+
+.dance-info {
+    background: $smoke-color;
+    border: 1px solid $gray-color;
+    border-radius: 20px;
+    padding: 30px;
+    min-width: 242px;
+
+    @media(max-width: 1399px) {
+        min-width: 100%;
+    }
+
+    i {
+        color: $theme-color;
+        margin-right: 10px;
+    }
+
+    .dance-desc {
+        font-weight: 500;
+        color: $title-color;
+    }
+}

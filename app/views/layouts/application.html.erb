@@ -2,26 +2,35 @@
 <html lang="en">
   <head>
     <title>Malvern Ballet</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-cache-control" content="no-cache">
     <meta name="description" content="Welcome to Malvern Ballet School, Inspiring tomorrows dancers today!">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="keywords" content="Malvern - Dance School and Malvern Ballet Studio">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!--==============================
+	  Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Norican&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
     <%= favicon_link_tag asset_path("favicon.ico") %>
   </head>
 
-  <body
-  data-controller= "header" 
-  data-header-picturein-class= "logo" 
-  data-header-pictureout-class= "secondary" 
-  data-header-logo-class= "logo-secondary" 
-  data-header-blue-class="header-colour"
-  data-header-underline-class="button-underline">
+  <body class="theme-blue">
   <%= yield %>
-  <%= render "shared/footer" %>
   </body>
 </html>
 

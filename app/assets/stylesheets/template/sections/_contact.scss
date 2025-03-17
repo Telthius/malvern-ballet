@@ -1,0 +1,1113 @@
+/* Contact 1 ---------------------------------- */
+.contact-img {
+    height: 100%;
+    position: relative;
+    z-index: 2;
+
+    img {
+        max-width: fit-content;
+        height: 100%;
+    }
+}
+
+.input-form {
+    .input-wrap {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+
+        @include md {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include sm {
+            gap: 14px;
+        }
+
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+
+        select,
+        .form-control,
+        .form-select,
+        textarea,
+        input {
+            background: #161921;
+            border-radius: 10px;
+            color: #6A7178;
+
+            &:focus {
+                outline: 0;
+                box-shadow: none;
+                border-color: $theme-color-3;
+                background-color: transparent;
+            }
+
+            @include inputPlaceholder {
+                color: #6A7178;
+            }
+        }
+    }
+
+    .form-group {
+        margin-bottom: 0;
+
+        i {
+            color: $theme-color;
+        }
+
+        .nice-select {
+
+            .option {
+                color: $title-color;
+
+                &.selected {
+                    color: $theme-color-3 !important;
+                    background: $theme-color-3 !important;
+
+                    &.focus {
+                        color: #fff !important;
+                        background: $theme-color-3 !important;
+                    }
+                }
+
+                &:hover,
+                &.focus {
+                    background: $theme-color-3 !important;
+                    color: #fff !important;
+                }
+            }
+
+            &.open {
+                .list {
+                    border-bottom: 3px solid $theme-color-3;
+                }
+            }
+        }
+    }
+}
+
+.contact-area {
+    --space: 60px;
+    position: relative;
+
+    &::before {
+        content: '';
+        height: calc(100% - var(--space)*2);
+        width: calc(100% + var(--space)*2);
+        position: absolute;
+        top: var(--space);
+        left: calc(0px - var(--space));
+        border: 2px solid $theme-color;
+    }
+
+    .shape {
+        position: absolute;
+        top: 0;
+        left: -182px;
+    }
+}
+
+@include lg {
+    .contact-area {
+        &::before {
+            display: none;
+        }
+    }
+
+    .contact-img {
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+/*Contact Us Form ------------------*/
+.contact-us-form {
+    &.style3 {
+        .title-area {
+            .sec-title {
+                text-transform: capitalize;
+                margin-bottom: 11px;
+            }
+        }
+
+        select,
+        .form-control,
+        .form-select,
+        textarea,
+        input {
+            border: 1px solid #242936;
+            border-radius: 10px;
+
+            &:hover,
+            &:focus {
+                border: 1px solid $theme-color-3;
+            }
+        }
+
+        textarea {
+            min-height: 211px;
+        }
+
+        .nice-select {
+            .option {
+                color: $title-color;
+
+                &.selected {
+                    color: $theme-color-3 !important;
+                    background: $theme-color !important;
+
+                    &.focus {
+                        color: #fff !important;
+                        background: $theme-color-3 !important;
+                    }
+                }
+
+                &:hover,
+                &.focus {
+                    background: $theme-color-3 !important;
+                    color: #fff !important;
+                }
+            }
+
+            &.open {
+                .list {
+                    border-bottom: 3px solid $theme-color-3;
+                }
+            }
+        }
+    }
+
+    &.style4 {
+
+        select,
+        .form-control,
+        .form-select,
+        textarea,
+        input {
+            background-color: $white-color;
+            box-shadow: 0px 10px 15px rgba(229, 229, 229, 0.3);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid $white-color;
+            border-radius: 10px;
+
+            &:hover,
+            &:focus {
+                border: 1px solid $theme-color-3;
+            }
+        }
+
+        textarea {
+            min-height: 211px;
+        }
+
+        .nice-select {
+            .option {
+                color: $title-color;
+
+                &.selected {
+                    color: $theme-color-3 !important;
+                    background: $theme-color !important;
+
+                    &.focus {
+                        color: #fff !important;
+                        background: $theme-color-3 !important;
+                    }
+                }
+
+                &:hover,
+                &.focus {
+                    background: $theme-color-3 !important;
+                    color: #fff !important;
+                }
+            }
+
+            &.open {
+                .list {
+                    border-bottom: 3px solid $theme-color-3;
+                }
+            }
+        }
+
+        .wpcf7-submit.th-btn {
+            background-color: var(--theme-color);
+            border-color: $theme-color;
+
+            &:hover {
+                background-color: $white-color;
+            }
+        }
+    }
+
+    .form-group {
+        margin-bottom: 30px;
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: transparent;
+        border: 1px solid #D4D4D4;
+        border-radius: 10px;
+    }
+
+    textarea {
+        min-height: 211px;
+    }
+
+    .nice-select {
+        .option {
+            color: $title-color;
+
+            &.selected {
+                color: $theme-color !important;
+                background: $theme-color !important;
+
+                &.focus {
+                    color: #fff !important;
+                    background: $theme-color !important;
+                }
+            }
+
+            &:hover,
+            &.focus {
+                background: $theme-color !important;
+                color: #fff !important;
+            }
+        }
+
+        &.open {
+            .list {
+                border-bottom: 3px solid $theme-color;
+            }
+        }
+    }
+
+    .contact-form-btn {
+        .th-btn {
+
+            &:hover:before,
+            &:hover:after {
+                background-color: var(--white-color);
+            }
+        }
+
+        @include sm {
+            text-align: center;
+        }
+    }
+}
+
+
+
+/* Default wp Form ------------------*/
+.form-group {
+    p {
+        margin: 0;
+    }
+}
+
+.form-btn {
+    margin: 0;
+
+}
+
+/* booking-form start -------------------------*/
+.input-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    @include md {
+        position: relative;
+    }
+}
+
+.booking-form {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $white-color;
+    border-radius: 10px;
+    padding: 5px;
+    width: 686px;
+    height: 56px;
+    margin: auto auto 60px auto;
+    z-index: 9;
+
+    @include sm {
+        width: 100%;
+        height: 100%;
+    }
+
+    @include sm {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include vxs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .form-select {
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            right: -5px;
+            top: 10px;
+            width: 1px;
+            height: 28px;
+            background-color: #CBCDCF;
+
+            @include vxs {
+                display: none;
+            }
+
+        }
+
+
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    .nice-select,
+    textarea,
+    input {
+        background-color: transparent;
+        height: 46px;
+        line-height: 46px;
+        font-size: 14px;
+
+        &:focus {
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    .form-group {
+        margin: 0;
+    }
+
+    .nice-select {
+        &:after {
+            top: 17px;
+        }
+
+        .option {
+            color: $title-color;
+
+            &.selected {
+                color: $theme-color-3 !important;
+                background: $theme-color-3 !important;
+
+                &.focus {
+                    color: #fff !important;
+                    background: $theme-color-3 !important;
+                }
+            }
+
+            &:hover,
+            &.focus {
+                background: $theme-color-3 !important;
+                color: #fff !important;
+            }
+        }
+
+        &.open {
+            .list {
+                border-bottom: 3px solid $theme-color-3;
+                min-width: 180px;
+            }
+        }
+    }
+
+    .th-btn {
+        padding: 10px 35px;
+
+        @include sm {
+            width: 100%;
+        }
+    }
+
+    .form-btn {
+        @include sm {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .wpcf7-spinner {
+            display: none;
+        }
+    }
+
+    .wpcf7-submit.th-btn {
+        padding: 0px 35px;
+
+        @include sm {
+            margin: 0;
+        }
+
+        &:hover {
+            background-color: $theme-color;
+        }
+    }
+}
+
+/* booking-form end -------------------------*/
+
+/* Login Form -------------------------*/
+.login-form {
+    background-color: $white-color;
+    border: 1px solid $gray-color;
+    border-radius: 20px;
+    padding: 40px;
+
+    @include lg {
+        padding: 30px;
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 22px;
+
+        label {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 26px;
+            color: $body-color;
+            margin-bottom: 2px;
+        }
+
+        select,
+        .form-control,
+        .form-select,
+        textarea,
+        input {
+            background-color: transparent;
+            border: 1px solid $gray-color;
+            border-radius: 10px;
+
+            &:hover,
+            &:focus {
+                border: 1px solid $theme-color;
+            }
+        }
+
+        i {
+            display: inline-block;
+            position: absolute;
+            right: 30px;
+            top: 45px;
+            font-size: 14px;
+            color: $body-color;
+        }
+    }
+}
+
+/* Register Form -------------------------*/
+.register-form {
+    background-color: $white-color;
+    border: 1px solid $gray-color;
+    border-radius: 20px;
+    padding: 40px;
+    margin-left: 95px;
+
+    @include lg {
+        margin-left: 0;
+        padding: 30px;
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 22px;
+
+        label {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 26px;
+            color: $body-color;
+            margin-bottom: 2px;
+        }
+
+        select,
+        .form-control,
+        .form-select,
+        textarea,
+        input {
+            background-color: transparent;
+            border: 1px solid $gray-color;
+            border-radius: 10px;
+
+            &:hover,
+            &:focus {
+                border: 1px solid $theme-color;
+            }
+        }
+
+        i {
+            display: inline-block;
+            position: absolute;
+            right: 30px;
+            top: 45px;
+            font-size: 14px;
+            color: $body-color;
+        }
+    }
+}
+
+/* contact-map start */
+.contact-map {
+    position: relative;
+    overflow: hidden;
+
+    iframe {
+        height: 499px;
+    }
+
+    .contact-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+
+        i {
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
+            background-color: $theme-color;
+            border-radius: 50%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin: 0 auto 0 auto;
+            font-size: 24px;
+            color: $white-color;
+        }
+
+    }
+}
+
+/* th-comment-form ---------------------*/
+.th-comment-form {
+    .nice-select {
+        .option {
+            color: $title-color;
+
+            &.selected {
+                color: $theme-color !important;
+                background: $theme-color !important;
+
+                &.focus {
+                    color: #fff !important;
+                    background: $theme-color !important;
+                }
+            }
+
+            &:hover,
+            &.focus {
+                background: $theme-color !important;
+                color: #fff !important;
+            }
+        }
+
+        &.open {
+            .list {
+                border-bottom: 3px solid $theme-color;
+            }
+        }
+    }
+}
+
+/* RSVP Page ----------------------- */
+.map-sec {
+    line-height: 0;
+
+    iframe {
+        width: 100%;
+        height: 500px;
+
+        @include xl {
+            height: 400px;
+        }
+
+        @include sm {
+            height: 300px;
+        }
+    }
+}
+
+/* Inquiry ---------------------------------- */
+.inquiry-form {
+    background-color: $white-color;
+    padding: 50px;
+    box-shadow: 0px 6px 40px rgba(1, 15, 28, 0.08);
+
+    .nice-select {
+        .option {
+            color: $title-color;
+
+            &.selected {
+                color: $theme-color !important;
+                background: $theme-color !important;
+
+                &.focus {
+                    color: #fff !important;
+                    background: $theme-color !important;
+                }
+            }
+
+            &:hover,
+            &.focus {
+                background: $theme-color !important;
+                color: #fff !important;
+            }
+        }
+
+        &.open {
+            .list {
+                border-bottom: 3px solid $theme-color;
+            }
+        }
+    }
+}
+
+@include xs {
+    .inquiry-form {
+        padding: 40px 20px;
+    }
+}
+
+/* Contact Page ---------------------------------- */
+.contact-info {
+    background-color: $white-color;
+    box-shadow: 0px 6px 30px rgba(1, 19, 60, 0.07);
+    border-radius: 20px;
+    margin-bottom: 0px;
+    padding: 40px 35px;
+    position: relative;
+    z-index: 9;
+
+    @include lg {
+        margin-bottom: 24px;
+        padding: 30px 20px;
+    }
+
+    &_title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: -0.25em;
+        margin-bottom: 15px;
+
+        @include lg {
+            font-size: 20px;
+        }
+    }
+
+    &_icon {
+        display: inline-block;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        line-height: 80px;
+        background-color: $theme-color;
+        color: $white-color;
+        text-align: center;
+        font-size: 35px;
+        border-radius: 99px;
+        position: relative;
+        margin-bottom: 34px;
+
+        @include lg {
+            width: 50px;
+            min-width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 25px;
+            margin-bottom: 24px;
+        }
+
+        &:before {
+            content: '';
+            @include equal-size(100%);
+            border: 2px solid #6B2AE6;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            border-radius: inherit;
+            transition: 0.4s ease-in-out;
+            z-index: -1;
+        }
+    }
+
+    &_text {
+        min-width: 100%;
+        display: block;
+        margin-bottom: -0.5em;
+
+        @include lg {
+            font-size: 14px;
+        }
+
+        span,
+        a {
+            display: block;
+        }
+
+        a {
+            color: $body-color;
+
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+
+    &:hover {
+        .contact-info {
+            &_icon {
+                &:before {
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.contact-form {
+    background-color: $white-color;
+    padding: 40px;
+    box-shadow: 0px 6px 30px rgba(1, 15, 28, 0.1);
+
+    .form-title {
+        text-align: center;
+        max-width: 520px;
+        margin: -0.26em auto 35px auto;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $border-color;
+        position: relative;
+
+        &:after {
+            content: '';
+            width: 140px;
+            height: 2px;
+            background-color: $theme-color;
+            position: absolute;
+            bottom: -2px;
+            left: calc(50% - 70px);
+        }
+    }
+
+    textarea.form-control {
+        min-height: 130px;
+    }
+}
+
+@include lg {
+    .contact-info {
+        &-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        margin-bottom: 0;
+    }
+}
+
+@include md {
+    .contact-info {
+        &-wrap {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
+
+@include xs {
+    .contact-form {
+        padding: 40px 20px;
+    }
+
+    .contact-info {
+        padding: 30px;
+    }
+}
+
+@include vxs {
+    .contact-form {
+        padding: 40px 20px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+}
+
+.contact-image {
+    padding-right: 50px;
+    min-width: 513px;
+    min-height: 650px;
+
+    &.style3 {
+        @include lg {
+            animation: movingX-reverse 8s linear infinite;
+        }
+    }
+
+    @include lg {
+        animation: movingX 8s linear infinite;
+    }
+
+    @include md {
+        margin-bottom: 30px;
+        min-width: 100%;
+        min-height: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+}
+
+/*contact-form2 start --------------------------*/
+.contact-form2 {
+    background-color: #F5F5F5;
+    padding: 60px;
+    border-radius: 20px;
+
+    @include ml {
+        padding: 40px;
+    }
+
+    @include xl {
+        padding: 30px;
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        height: 56px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 10px;
+        color: var(--body-color);
+        background-color: $white-color;
+    }
+
+    .wpcf7-submit {
+        &.th-btn {
+            background-color: $theme-color;
+            color: $white-color;
+
+            &:hover {
+                background-color: $title-color;
+                color: $white-color;
+            }
+        }
+    }
+}
+
+.contact9-image {
+    img {
+        border-radius: 20px;
+    }
+}
+
+.contact-media {
+    display: flex;
+    gap: 15px;
+
+    @include vxs {
+        display: block;
+        text-align: center;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 50px;
+    }
+
+    .box-icon {
+        position: relative;
+        min-width: 90px;
+        z-index: 2;
+
+        @include vxs {
+            margin-bottom: 25px;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 64px;
+            height: 74px;
+            background-color: $theme-color;
+            opacity: 0.15;
+            clip-path: path("M29.1079 0.00486501C15.2866 0.268317 6.14201 12.7767 2.00104 25.9988C-1.98606 38.7296 -0.341438 52.8094 9.90176 61.3298C22.6527 71.9363 40.7668 79.1748 54.1402 69.3691C67.4333 59.6222 65.1873 40.4268 59.5844 24.9012C54.6555 11.2432 43.5932 -0.271244 29.1079 0.00486501Z");
+            z-index: -1;
+
+            @include vxs {
+                left: 40%;
+            }
+        }
+    }
+
+    .box-title {
+        font-size: 24px;
+    }
+}
+
+/* contact 10 start---------------*/
+.contact-area10 {
+    position: relative;
+    z-index: 2;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #161921;
+        width: 1577px;
+        height: 100%;
+        z-index: -1;
+        border-radius: 0 20px 20px 0px;
+    }
+}
+
+.contact10-content {
+    background-color: #242936;
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-image: url("shape/contact-shape2.png");
+    padding: 60px 80px 64px 80px;
+
+    @include lg {
+        padding: 60px 75px 64px 40px;
+    }
+
+    @include sm {
+        text-align: center;
+    }
+
+    .th-social {
+        margin-top: 25px;
+
+        a {
+            --icon-size: 36px;
+            border-radius: 6px;
+            margin-right: 15px;
+
+            &:not(:hover) {
+                color: $theme-color;
+            }
+
+        }
+    }
+
+    .text {
+        font-family: $title-font;
+        color: $white-color;
+        padding-top: 50px;
+        margin-bottom: -0.3rem;
+    }
+
+}
+
+.info-box {
+    &.style2 {
+        margin-bottom: 20px;
+
+        @include sm {
+            justify-content: center;
+        }
+
+        span {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .info-box_text {
+            font-size: 20px;
+            display: block;
+            @include vxs {
+                font-size: 18px; 
+            }
+        }
+
+        .info-box_link {
+            display: block;
+
+        }
+    }
+}
+
+.contact-form3 {
+    background-color: #F5F5F5;
+    padding: 60px;
+    border-radius: 20px;
+    margin-right: -10px;
+
+    @include ml {
+        padding: 40px;
+    }
+
+    @include xl {
+        padding: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 23px;
+        position: relative;
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        height: 56px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 10px;
+        color: var(--body-color);
+        background-color: $white-color;
+    }
+
+    textarea.form-control,
+    textarea {
+        min-height: 138px;
+    }
+
+    .wpcf7-submit {
+        &.th-btn {
+            background-color: $theme-color;
+            color: $white-color;
+
+            &:hover {
+                background-color: $title-color;
+                color: $white-color;
+            }
+        }
+    }
+}

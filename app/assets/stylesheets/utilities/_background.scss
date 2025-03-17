@@ -1,0 +1,62 @@
+@each $bgcolorMap, $value in $bgcolorMap {
+  .bg-#{$bgcolorMap} {
+    background-color: #{$value} !important;
+  }
+}
+
+
+.bg-fluid {
+  @include background-content(no-repeat, 100% 100%, center center);
+}
+
+.bg-auto {
+  background-size: auto auto;
+}
+
+.bg-top-center {
+  background-size: auto;
+  background-position: top center;
+}
+
+.bg-repeat {
+  background-size: auto;
+  background-repeat: repeat;
+}
+
+// BACKGROUND IMAGES
+
+.service-area6 {
+  &.background-image {
+    background-image: url("bg/service_bg_2.jpg");
+    @include background-content(no-repeat, cover, center center);
+  }
+}
+
+.th-hero-bg {
+  &.background-image {
+    background-image: url('hero/hero_bg_10_2.jpg');
+    @include background-content(no-repeat, cover, center center);
+  }
+}
+
+.counter-area4 {
+  &.gallery-area10 {
+    background-image: url('bg/counter_bg_1.png');
+    @include background-content(no-repeat, cover, center center);
+  }
+}
+
+.gallery-area10 {
+  &.background-image {
+    background-image: url('bg/gallery_bg_11.jpg');
+    @include background-content(no-repeat, cover, center center);
+  }
+}
+
+.footer-wrapper {
+  &.background-image {
+    background-image: url('bg/footer_bg_10.jpg');
+    @include background-content(no-repeat, cover, center center);
+  }
+}
+
