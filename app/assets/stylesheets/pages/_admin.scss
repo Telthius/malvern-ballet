@@ -70,3 +70,14 @@
     outline-color: #5e548e;
   }
 }
+
+.admin-item-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-item-dates {
+  color: #666;
+  font-size: 0.9em;
+}

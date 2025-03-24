@@ -1,24 +1,22 @@
-<%= form_with model: [:admin, ballet_class, class_time] do |f| %>
-  <% if class_time.errors.any? %>
-    <div class="error-message">
-      <%= class_time.errors.full_messages.to_sentence.capitalize %>
-    </div>
-  <% end %>
+<%= form_with(model: [:admin, ballet_class, class_time]) do |f| %>
+<% if class_time.errors.any? %>
+<div class="error-message">
+  <%= class_time.errors.full_messages.to_sentence.capitalize %>
+</div>
+<% end %>
 
-  <div class="admin-item admin-item-create flex jc-sb">
-    <div class="admin-form-fields flex ai-c">
-      <%= f.label :day_of_week, "Day of week: ", class: 'admin-form-field' %>
-      <%= f.select :day_of_week, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], {class: "admin-form-field"} %>
-      <%= f.label :timetable_id, "Timetable ", class: 'admin-form-field' %>
-      <%= f.collection_select :timetable_id, Timetable.current_years_timetables, :id, :term, {prompt: true}, {class: "admin-form-field"} %>
-      <%= f.label :start_time, "Start time: ", class: 'admin-form-field' %>
-      <%= f.time_field :start_time, input_html: { autofocus: true }, placeholder: "placeholder text", class: 'admin-form-field' %>
-      <%= f.label :end_time, "End time: ", class: 'admin-form-field' %>
-      <%= f.time_field :end_time, input_html: { autofocus: true }, placeholder: "placeholder text", class: 'admin-form-field' %>
-    </div>
-    <div class="ballet-class__actions flex">
-      <%= link_to "", admin_ballet_class_path(ballet_class), class: "admin-button touch cancel" %>
-      <%= button_tag "", class:"admin-button touch new" %>
-    </div>
+<div class="admin-item admin-item-create flex jc-sb">
+  <div class="admin-form-fields flex ai-c">
+    <%= f.label :day_of_week, "Day of week: ", class: 'admin-form-field' %>
+    <%= f.select :day_of_week, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], {class: "admin-form-field"} %>
+    <%= f.label :start_time, "Start time: ", class: 'admin-form-field' %>
+    <%= f.time_field :start_time, input_html: { autofocus: true }, placeholder: "placeholder text", class: 'admin-form-field' %>
+    <%= f.label :end_time, "End time: ", class: 'admin-form-field' %>
+    <%= f.time_field :end_time, input_html: { autofocus: true }, placeholder: "placeholder text", class: 'admin-form-field' %>
   </div>
+  <div class="ballet-class__actions flex">
+    <%= link_to "", admin_timetable_ballet_class_class_times_path(@timetable, @ballet_class), class: "admin-button touch cancel" %>
+    <%= button_tag "", class:"admin-button touch new" %>
+  </div>
+</div>
 <% end %>

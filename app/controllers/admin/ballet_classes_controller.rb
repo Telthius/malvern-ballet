@@ -1,5 +1,6 @@
 module Admin
   class BalletClassesController < ApplicationController
+    before_action :set_timetable
     before_action :set_ballet_class, only: [:show, :edit, :update, :destroy]
     layout "admin"
     def index
@@ -53,9 +54,13 @@ module Admin
     private
   
     def set_ballet_class
-      @ballet_class = BalletClass.find(params[:id])
+      @ballet_class = @timetable.ballet_classes.find(params[:id])
     end
-  
+ 
+    def set_timetable
+      @timetable = Timetable.find(params[:timetable_id])
+    end
+
     def ballet_class_params
       params.require(:ballet_class).permit(:ballet_level_id, :class_name)
     end

@@ -8,7 +8,6 @@ class ClassTime < ApplicationRecord
   SUNDAY = 'Sunday'
 
   belongs_to :ballet_class
-  belongs_to :timetable
 
   validates :day_of_week, inclusion: { in: %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday] }
   validates :start_time, presence: true

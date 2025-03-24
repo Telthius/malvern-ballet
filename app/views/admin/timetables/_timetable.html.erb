@@ -1,0 +1,19 @@
+<%= turbo_frame_tag timetable do %>
+<div class="admin-item flex jc-sb">
+  <div class="admin-item-details">
+    <%= link_to timetable.name, admin_timetable_path(timetable), class: "admin-item-name" %>
+    <span class="admin-item-dates">
+      <%= timetable.start_date.strftime("%d %B") %> - <%= timetable.end_date.strftime("%d %B %Y") %>
+    </span>
+  </div>
+  <div class="ballet-class__actions flex">
+    <%= button_to "",
+                    admin_timetable_path(timetable),
+                    method: :delete,
+                    class: "admin-button touch delete" %>
+    <%= link_to "",
+                  edit_admin_timetable_path(timetable),
+                  class: "admin-button touch edit" %>
+  </div>
+</div>
+<% end %>

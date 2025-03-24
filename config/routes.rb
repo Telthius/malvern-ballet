@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get 'home', to: 'home#index'
 
   namespace :admin do
-    resources :ballet_classes do 
-      resources :class_times, except: [:index, :show]
+    resources :timetables do
+      resources :ballet_classes do 
+        resources :class_times, except: [:index, :show]
+      end
     end
   end
 

@@ -1,0 +1,14 @@
+<section data-header-target="other" class="admin-main">
+
+  <div class="admin-heading-cont flex jc-sa">
+    <h1 class="admin-heading">Timetables</h1>
+    <div class="as-c"><%= link_to "Add Timetable", new_admin_timetable_path, class:"admin-new-button", data: { turbo_frame: dom_id(Timetable.new) } %></div>
+  </div>
+  <div>
+    <%= turbo_frame_tag Timetable.new %>
+    <%= turbo_frame_tag "timetables" do %>
+    <%= render @timetables %>
+    <% end %>
+  </div>
+
+</section>

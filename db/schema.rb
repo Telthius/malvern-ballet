@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2023_05_18_055707) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_24_111010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -47,7 +47,9 @@ ActiveRecord::Schema[8.0].define(version: 2023_05_18_055707) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "class_name"
+    t.bigint "timetable_id"
     t.index ["ballet_level_id"], name: "index_ballet_classes_on_ballet_level_id"
+    t.index ["timetable_id"], name: "index_ballet_classes_on_timetable_id"
   end
 
   create_table "ballet_levels", force: :cascade do |t|
@@ -59,14 +61,12 @@ ActiveRecord::Schema[8.0].define(version: 2023_05_18_055707) do
 
   create_table "class_times", force: :cascade do |t|
     t.bigint "ballet_class_id"
-    t.bigint "timetable_id"
     t.string "day_of_week", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.time "start_time"
     t.time "end_time"
     t.index ["ballet_class_id"], name: "index_class_times_on_ballet_class_id"
-    t.index ["timetable_id"], name: "index_class_times_on_timetable_id"
   end
 
   create_table "costs", force: :cascade do |t|
@@ -100,8 +100,10 @@ ActiveRecord::Schema[8.0].define(version: 2023_05_18_055707) do
     t.datetime "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", default: "", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ballet_classes", "timetables"
 end

@@ -1,10 +1,11 @@
-
-
 <main class="container">
   <%= link_to sanitize("&larr; Back to ballet classes"), admin_ballet_classes_path %>
   <div class="admin-heading-cont flex jc-sa">
     <h1 class="admin-heading"><%= @ballet_class.class_name %></h1>
-    <div class="as-c"><%= link_to "Add Class Time", new_admin_ballet_class_class_time_path(@ballet_class), class:"admin-new-button" %></div>
+    <div class="as-c"><%= link_to "Add Class Time", new_admin_timetable_ballet_class_class_time_path(@timetable, @ballet_class), class:"admin-new-button", data: { turbo_frame: dom_id(ClassTime.new) } %></div>
   </div>
+  <%= turbo_frame_tag ClassTime.new %>
+  <%= turbo_frame_tag "class_times" do %>
   <%= render @class_times, ballet_class: @ballet_class %>
+  <% end %>
 </main>

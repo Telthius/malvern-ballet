@@ -11,7 +11,7 @@ class TimetableClasses
   end
 
   def define_timetable_classes(timetable)
-    @term = timetable.term
+    @term = timetable.name
     @monday = timetable&.classes_on_day(ClassTime::MONDAY)
     @tuesday = timetable&.classes_on_day(ClassTime::TUESDAY)
     @wednesday = timetable&.classes_on_day(ClassTime::WEDNESDAY)

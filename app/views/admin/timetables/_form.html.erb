@@ -1,0 +1,31 @@
+<%= form_with model: [:admin, timetable] do |f| %>
+<% if timetable.errors.any? %>
+<div class="error-message">
+  <%= timetable.errors.full_messages.to_sentence.capitalize %>
+</div>
+<% end %>
+
+<div class="admin-item admin-item-create flex jc-sb">
+  <div class="admin-form-fields flex ai-c">
+    <%= f.text_field :name, 
+                       input_html: { autofocus: true },
+                       placeholder: "Timetable name", 
+                       class: 'admin-form-field' %>
+
+    <%= f.select :term, 
+                 ['1', '2', '3', '4'],
+                 { prompt: 'Select term' },
+                 class: 'admin-form-field' %>
+
+    <%= f.label :start_date, "Start Date: ", class: 'admin-form-field' %>
+    <%= f.date_field :start_date, class: 'admin-form-field' %>
+
+    <%= f.label :end_date, "End Date: ", class: 'admin-form-field' %>
+    <%= f.date_field :end_date, class: 'admin-form-field' %>
+  </div>
+  <div class="ballet-class__actions flex">
+    <%= link_to "", admin_timetables_path, class: "admin-button touch cancel" %>
+    <%= button_tag "", class:"admin-button touch new" %>
+  </div>
+</div>
+<% end %>
