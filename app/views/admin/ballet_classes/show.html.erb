@@ -6,6 +6,6 @@
   </div>
   <%= turbo_frame_tag ClassTime.new %>
   <%= turbo_frame_tag "class_times" do %>
-  <%= render @class_times, timetable: @timetable, ballet_class: @ballet_class %>
+  <%= render @class_times %>
   <% end %>
 </main>

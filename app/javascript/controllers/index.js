@@ -4,6 +4,11 @@
 
 import { application } from "./application"
 
+import Carousel from "stimulus-carousel";
+import Dropdown from "stimulus-dropdown";
+application.register("carousel", Carousel);
+application.register("dropdown", Dropdown);
+
 import HeaderController from "./header_controller"
 application.register("header", HeaderController)
 

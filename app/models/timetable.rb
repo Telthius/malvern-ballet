@@ -3,7 +3,7 @@ class Timetable < ApplicationRecord
   TERM_TWO = '2'
   TERM_THREE = '3'
   TERM_FOUR = '4'
-  has_many :ballet_classes
+  has_many :ballet_classes, dependent: :destroy
   has_many :class_times, through: :ballet_classes
 
   validates :term, inclusion: { in: %w[1 2 3 4] }
