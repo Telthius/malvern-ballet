@@ -1,7 +1,7 @@
 <main class="container">
   <%= link_to sanitize("&larr; Back to timetables"), admin_timetables_path %>
   <div class="admin-heading-cont flex jc-sa">
-    <h1 class="admin-heading">Term <%= @timetable.name %></h1>
+    <h1 class="admin-heading"><%= @timetable.name %></h1>
     <div class="as-c"><%= link_to "Add Ballet Class", new_admin_timetable_ballet_class_path(@timetable), class:"admin-new-button", data: { turbo_frame: dom_id(BalletClass.new) } %></div>
   </div>
   <%= turbo_frame_tag BalletClass.new %>

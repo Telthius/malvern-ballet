@@ -13,7 +13,7 @@
     <%= f.collection_select :ballet_level_id, BalletLevel.all, :id, :name, {prompt: true}, {class: "admin-form-field"} %>
   </div>
   <div class="ballet-class__actions flex">
-    <%= link_to "", admin_timetable_ballet_classes_path(timetable), class: "admin-button touch cancel" %>
+    <%= link_to "", admin_timetable_path(timetable), class: "admin-button touch cancel" %>
     <%= button_tag "", class:"admin-button touch new" %>
   </div>
 </div>

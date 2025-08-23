@@ -1,4 +1,4 @@
-<%= form_with(model: [:admin, ballet_class, class_time]) do |f| %>
+<%= form_with(model: [:admin, timetable, ballet_class, class_time]) do |f| %>
 <% if class_time.errors.any? %>
 <div class="error-message">
   <%= class_time.errors.full_messages.to_sentence.capitalize %>
@@ -15,7 +15,7 @@
     <%= f.time_field :end_time, input_html: { autofocus: true }, placeholder: "placeholder text", class: 'admin-form-field' %>
   </div>
   <div class="ballet-class__actions flex">
-    <%= link_to "", admin_timetable_ballet_class_class_times_path(@timetable, @ballet_class), class: "admin-button touch cancel" %>
+    <%= link_to "", admin_timetable_ballet_class_path(@timetable, @ballet_class), class: "admin-button touch cancel" %>
     <%= button_tag "", class:"admin-button touch new" %>
   </div>
 </div>

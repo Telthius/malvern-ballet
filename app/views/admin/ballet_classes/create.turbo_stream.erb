@@ -1,2 +1,2 @@
-<%= turbo_stream.prepend "ballet_classes", partial: "admin/ballet_classes/ballet_class", locals: { ballet_class: @ballet_class } %>
+<%= turbo_stream.prepend "ballet_classes", partial: "admin/ballet_classes/ballet_class", locals: { timetable: @timetable, ballet_class: @ballet_class } %>
 <%= render_turbo_stream_flash_messages %>

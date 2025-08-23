@@ -3,9 +3,6 @@ module Admin
     before_action :set_timetable
     before_action :set_ballet_class, only: [:show, :edit, :update, :destroy]
     layout "admin"
-    def index
-      @ballet_classes = BalletClass.all()
-    end
 
     def show
       @class_times = @ballet_class.class_times.ordered
@@ -17,7 +14,7 @@ module Admin
     end
   
     def create
-      @ballet_class = BalletClass.new(ballet_class_params)
+      @ballet_class = @timetable.ballet_classes.build(ballet_class_params)
   
       if @ballet_class.save
         respond_to do |format|
@@ -62,7 +59,7 @@ module Admin
     end
 
     def ballet_class_params
-      params.require(:ballet_class).permit(:ballet_level_id, :class_name)
+      params.require(:ballet_class).permit(:class_name, :ballet_level_id)
     end
   end
 end
