@@ -4,9 +4,16 @@ export default class extends Controller {
   static targets = [
     "headercont",
     "logocont",
+    "home",
+    "other",
     "logohome",
     "logoother",
-    
+    "timetable",
+    "classes",
+    "bootybarre",
+    "menu",
+    "enrol",
+    "admin",
   ];
   static classes = ["logo", "blue", "pictureout", "underline"];
 
