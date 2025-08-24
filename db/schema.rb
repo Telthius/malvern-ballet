@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_08_052955) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_24_034356) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,11 +42,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_08_052955) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "administrators", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_administrators_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
+  end
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
   create_table "ballet_classes", force: :cascade do |t|
     t.bigint "ballet_level_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "class_name"
+    t.bigint "timetable_id"
     t.index ["ballet_level_id"], name: "index_ballet_classes_on_ballet_level_id"
+    t.index ["timetable_id"], name: "index_ballet_classes_on_timetable_id"
   end
 
   create_table "ballet_levels", force: :cascade do |t|
@@ -58,14 +85,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_08_052955) do
 
   create_table "class_times", force: :cascade do |t|
     t.bigint "ballet_class_id"
-    t.bigint "timetable_id"
     t.string "day_of_week", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.time "start_time"
     t.time "end_time"
     t.index ["ballet_class_id"], name: "index_class_times_on_ballet_class_id"
-    t.index ["timetable_id"], name: "index_class_times_on_timetable_id"
   end
 
   create_table "costs", force: :cascade do |t|
@@ -99,8 +124,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_08_052955) do
     t.datetime "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", default: "", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ballet_classes", "timetables"
 end

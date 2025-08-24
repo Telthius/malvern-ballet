@@ -1,0 +1,14 @@
+<%= turbo_frame_tag class_time do %>
+<div class="admin-item flex jc-sb">
+  <div class="admin-item-name"> <%= class_time.day_of_week %> <%= class_time.start_time.strftime("%I:%M %p") %> - <%= class_time.end_time.strftime("%I:%M %p") %></div>
+  <div class="ballet-class__actions flex">
+    <%= button_to "",
+                    admin_timetable_ballet_class_class_time_path(@timetable, @ballet_class, class_time),
+                    method: :delete,
+                    class: "admin-button touch delete" %>
+    <%= link_to "",
+                  edit_admin_timetable_ballet_class_class_time_path(@timetable, @ballet_class, class_time),
+                  class: "admin-button touch edit" %>
+  </div>
+</div>
+<% end %>

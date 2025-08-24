@@ -9,9 +9,9 @@ class Enrolment < ApplicationRecord
 
   private
 
-    def ensure_email_unique
-      puts email
-      errors.add(:email, "has already registered interest") unless Enrolment.where(email:).empty?
-      true
-    end
+  def ensure_email_unique
+    puts email
+    errors.add(:email, "has already registered interest") unless Enrolment.where(email:).empty?
+    true
+  end
 end

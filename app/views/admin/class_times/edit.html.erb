@@ -1,0 +1,10 @@
+<h1>Edit Class Time</h1>
+
+<%= turbo_frame_tag @class_time do %>
+<%= render "form", timetable: @timetable, ballet_class: @ballet_class, class_time: @class_time %>
+<% end %>
+<br>
+
+<div>
+  <%= link_to "Back to class times", admin_timetable_ballet_class_class_times_path(@timetable, @ballet_class) %>
+</div>

@@ -6,6 +6,9 @@
 @import "config/fonts";
 @import "config/variables";
 @import "config/reset";
+@import "config/animations";
+@import "components/flash";
+@import "components/admin-button";
 @import "components/card";
 @import "components/button";
 @import "components/gallery";
@@ -15,6 +18,7 @@
 @import "components/ballet-class";
 @import "components/form";
 @import "components/menu";
+@import "components/visually-hidden";
 @import "layouts/flexbox";
 @import "layouts/header";
 @import "layouts/footer";
@@ -23,3 +27,4 @@
 @import "pages/enrol";
 @import "pages/timetable";
 @import "pages/class";
+@import "pages/admin";

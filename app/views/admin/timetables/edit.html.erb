@@ -1,0 +1,10 @@
+<h1>Edit Timetable</h1>
+
+<%= turbo_frame_tag @timetable do %>
+<%= render "form", timetable: @timetable %>
+<% end %>
+<br>
+
+<div>
+  <%= link_to "Back to timetables", admin_timetable_path(@timetable) %>
+</div>

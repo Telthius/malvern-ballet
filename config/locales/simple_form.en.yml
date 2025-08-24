@@ -1,0 +1,14 @@
+en:
+  simple_form:
+    placeholders:
+      ballet_class:
+        class_name: Name of your class
+    labels:
+      ballet_class:
+        class_name: Name
+
+  helpers:
+    submit:
+      ballet_class:
+        create: ""
+        update: Update class

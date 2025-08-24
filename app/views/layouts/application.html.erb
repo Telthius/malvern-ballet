@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Malvern Ballet</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache">
-    <meta name="description" content="Welcome to Malvern Ballet School, Inspiring tomorrows dancers today!">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= favicon_link_tag asset_path("favicon.ico") %>
-  </head>
+<head>
+  <title>Malvern Ballet</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="turbo-cache-control" content="no-cache">
+  <meta name="description" content="Welcome to Malvern Ballet School, Inspiring tomorrows dancers today!">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body
-  data-controller= "header" 
-  data-header-picturein-class= "logo" 
-  data-header-pictureout-class= "secondary" 
-  data-header-logo-class= "logo-secondary" 
-  data-header-blue-class="header-colour"
-  data-header-underline-class="button-underline">
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= favicon_link_tag asset_path("favicon.ico") %>
+</head>
+
+<body data-controller="header" data-header-picturein-class="logo" data-header-pictureout-class="secondary" data-header-logo-class="logo-secondary" data-header-blue-class="header-colour" data-header-underline-class="button-underline">
+
+  <% if notice %>
+  <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+  <p class="alert"><%= alert %></p>
+  <% end %>
+
   <%= yield %>
   <%= render "shared/footer" %>
-  </body>
+</body>
+
 </html>
-
-

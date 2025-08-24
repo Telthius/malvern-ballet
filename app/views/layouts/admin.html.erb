@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Malvern Ballet</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="turbo-cache-control" content="no-cache">
+  <meta name="description" content="Welcome to Malvern Ballet School, Inspiring tomorrows dancers today!">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= favicon_link_tag asset_path("favicon.ico") %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body data-controller="header" data-header-picturein-class="logo" data-header-pictureout-class="secondary" data-header-logo-class="logo-secondary" data-header-blue-class="header-colour" data-header-underline-class="button-underline">
+  <%= render "shared/header" %>
+  <div class="admin-cont flex">
+    <div class="admin-panel col">
+      <h2 class="">Ballet Classes</h2>
+      <h2 class="">Timetables</h2>
+      <h2 class="">Ballet Levels</h2>
+    </div>
+    <section data-header-target="other" class="admin-main">
+      <div id="flash" class="flash">
+        <%= render "layouts/flash" %>
+      </div>
+      <%= yield %>
+    </section>
+  </div>
+  <%= render "shared/footer" %>
+</body>
+
+</html>
