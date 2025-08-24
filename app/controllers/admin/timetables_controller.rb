@@ -1,5 +1,6 @@
 module Admin
   class TimetablesController < ApplicationController
+    before_action :authenticate_administrator!
     before_action :set_timetable, only: [:show, :edit, :update, :destroy]
     layout "admin"
 

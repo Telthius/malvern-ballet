@@ -1,4 +1,4 @@
-<header data-header-target="headercont" id="main_header" data-turbo-permanent class="header-cont flex jc-sb">
+<header data-header-target="headercont" id="main_header" class="header-cont flex jc-sb">
   <div data-header-target="logocont" class="logo-cont">
     <%= link_to image_tag("logo.webp", class: "logo", alt: "malvern ballet logo", data: { header_target: "logohome", action: "click->header#removeUnderline" }), home_path %>
     <%= link_to image_tag("logo blue.webp", class: "secondary", alt: "malvern ballet logo", data: { header_target: "logoother", action: "click->remove#classesUnderline" }), home_path %>
@@ -11,20 +11,36 @@
     </div>
   </label>
   <ul class="menu">
+    <% if administrator_signed_in? %>
     <li class="flex ai-c"><%= link_to "Admin", admin_timetables_path, class: "button button-mobile-menu" %></li>
+    <% end %>
     <li class="flex ai-c"><%= link_to "Enrol", enrolments_path, class: "button button-mobile-menu" %></li>
     <li class="flex ai-c"><%= link_to "Classes", ballet_levels_path(), class: "button button-mobile-menu" %></li>
     <li class="flex ai-c"><%= link_to "Timetable", timetable_path(id: 'current'), class: "button button-mobile-menu" %></li>
     <li class="flex ai-c"><%= link_to "BootyBarre", bootybarre_path, class: "button button-mobile-menu" %></li>
+
+    <% if administrator_signed_in? %>
+    <li class="flex ai-c">
+      <%= button_to "Sign Out", destroy_administrator_session_path, method: :delete, class: "button button-mobile-menu sign-out-button" %>
+    </li>
+    <% end %>
   </ul>
 
   <div class="main menu_header_cont">
-    <div class="header-menu jc-sb ai">
+    <div class="header-menu jc-sb ai-c">
+      <% if administrator_signed_in? %>
       <h2><%= link_to "Admin", admin_timetables_path, class: "button button-main", data: { header_targets: ["menu", "admin"] } %></h2>
+      <% end %>
       <h2><%= link_to "Enrol", enrolments_path, class: "button button-main", data: { header_targets: ["menu", "enrol"] } %></h2>
       <h2><%= link_to "Classes", ballet_levels_path(), class: "button button-main", data: { header_targets: ["menu", "classes"] } %></h2>
       <h2><%= link_to "Timetable", timetable_path(id: 'current'), class: "button button-main", data: { header_targets: ["menu", "timetable"] } %></h2>
       <h2><%= link_to "BootyBarre", bootybarre_path, class: "button button-main", data: { header_targets: ["menu", "bootybarre"] } %></h2>
+
+      <% if administrator_signed_in? %>
+      <h2>
+        <%= button_to "Sign Out", destroy_administrator_session_path, method: :delete, class: "button button-main sign-out-button" %>
+      </h2>
+      <% end %>
     </div>
   </div>
 

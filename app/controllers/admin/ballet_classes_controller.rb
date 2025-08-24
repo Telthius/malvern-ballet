@@ -1,5 +1,6 @@
 module Admin
   class BalletClassesController < ApplicationController
+    before_action :authenticate_administrator!
     before_action :set_timetable
     before_action :set_ballet_class, only: [:show, :edit, :update, :destroy]
     layout "admin"

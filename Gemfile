@@ -35,6 +35,9 @@ gem "redis", "~> 4.0"
 
 gem "simple_form", "~> 5.1.0"
 
+# Authentication
+gem "devise"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

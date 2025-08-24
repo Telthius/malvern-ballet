@@ -1,5 +1,6 @@
 module Admin
   class ClassTimesController < ApplicationController
+    before_action :authenticate_administrator!
     before_action :set_timetable
     before_action :set_ballet_class
     before_action :set_class_time, only: [:edit, :update, :destroy]
