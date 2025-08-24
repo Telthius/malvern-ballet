@@ -19,9 +19,8 @@
   <%= render "shared/header" %>
   <div class="admin-cont flex">
     <div class="admin-panel col">
-      <h2 class="">Ballet Classes</h2>
-      <h2 class="">Timetables</h2>
-      <h2 class="">Ballet Levels</h2>
+      <h2 class=""><%= link_to "Timetables", admin_timetables_path, class: "admin-panel-link" %></h2>
+      <h2 class=""><%= link_to "Ballet Levels", admin_ballet_levels_path, class: "admin-panel-link" %></h2>
     </div>
     <section data-header-target="other" class="admin-main">
       <div id="flash" class="flash">

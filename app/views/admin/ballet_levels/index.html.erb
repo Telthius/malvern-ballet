@@ -1,0 +1,11 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to admin"), admin_timetables_path %>
+  <div class="admin-heading-cont flex jc-sa">
+    <h1 class="admin-heading">Ballet Levels</h1>
+    <div class="as-c"><%= link_to "Add Ballet Level", new_admin_ballet_level_path, class:"admin-new-button", data: { turbo_frame: dom_id(BalletLevel.new) } %></div>
+  </div>
+  <%= turbo_frame_tag BalletLevel.new %>
+  <%= turbo_frame_tag "ballet_levels" do %>
+  <%= render @ballet_levels %>
+  <% end %>
+</main>

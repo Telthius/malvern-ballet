@@ -1,0 +1,37 @@
+<%= form_with model: [:admin, ballet_level], data: { turbo_frame: "ballet_levels" } do |form| %>
+<% if ballet_level.errors.any? %>
+<div class="error-messages">
+  <h2><%= pluralize(ballet_level.errors.count, "error") %> prohibited this ballet level from being saved:</h2>
+  <ul>
+    <% ballet_level.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="admin-item admin-item-create flex jc-sb">
+  <div class="admin-form-fields flex ai-c">
+    <%= form.text_field :name, 
+                         placeholder: "Ballet level name", 
+                         class: 'admin-form-field' %>
+
+    <%= form.text_area :description, 
+                      placeholder: "Description", 
+                      rows: 3,
+                      class: 'admin-form-field' %>
+
+    <%= form.label :picture, "Picture:", class: 'admin-form-field' %>
+    <div class="admin-form-field flex col ">
+      <%= form.file_field :picture, accept: "image/*" %>
+      <% if ballet_level.picture.attached? %>
+      <span class="current-file">current: <%= ballet_level.picture.filename %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="ballet-class__actions flex">
+    <%= link_to "", admin_ballet_levels_path, class: "admin-button touch cancel" %>
+    <%= button_tag "", class:"admin-button touch new" %>
+  </div>
+</div>
+<% end %>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         resources :class_times, except: [:index, :show]
       end
     end
+    
+    resources :ballet_levels
   end
 
   get 'bootybarre', to: 'bootybarre#index'
