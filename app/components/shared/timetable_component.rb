@@ -42,15 +42,37 @@ class Shared::TimetableComponent < ViewComponent::Base
   end
 
   def class_level_color(level_id)
-    # Generate consistent colors for different ballet levels
+    # Mixed color palette to avoid similar shades being adjacent
     colors = [
+      # Primary brand colors first
       "from-primary-500 to-primary-600",
-      "from-accent-500 to-accent-600", 
-      "from-purple-500 to-purple-600",
-      "from-emerald-500 to-emerald-600",
-      "from-rose-500 to-rose-600",
-      "from-amber-500 to-amber-600"
+      "from-accent-500 to-accent-600",
+      
+      # Mix warm and cool colors to create visual separation
+      "from-red-500 to-red-600",           # Warm red
+      "from-blue-500 to-blue-600",         # Cool blue
+      "from-orange-500 to-orange-600",     # Warm orange
+      "from-teal-500 to-teal-600",         # Cool teal
+      "from-yellow-500 to-yellow-600",     # Warm yellow
+      "from-indigo-500 to-indigo-600",     # Cool indigo
+      "from-pink-500 to-pink-600",         # Warm pink
+      "from-cyan-500 to-cyan-600",         # Cool cyan
+      "from-amber-500 to-amber-600",       # Warm amber
+      "from-violet-500 to-violet-600",     # Cool violet
+      "from-rose-500 to-rose-600",         # Warm rose
+      "from-sky-500 to-sky-600",           # Cool sky
+      "from-lime-500 to-lime-600",         # Warm lime
+      "from-purple-500 to-purple-600",     # Cool purple
+      "from-emerald-500 to-emerald-600",   # Warm emerald
+      "from-slate-500 to-slate-600",       # Cool slate
+      "from-stone-500 to-stone-600",       # Warm stone
+      "from-zinc-500 to-zinc-600",         # Cool zinc
+      "from-gray-500 to-gray-600",         # Warm gray
+      "from-neutral-500 to-neutral-600"    # Cool neutral
     ]
+    
+    # Use level_id directly to ensure each level gets a unique color
+    # If we have more levels than colors, we'll cycle through them
     colors[level_id % colors.length]
   end
 
