@@ -1,16 +1,35 @@
 <%= turbo_frame_tag ballet_level do %>
-<div class="admin-item flex jc-sb">
-  <div class="admin-item-details">
-    <span class="admin-item-name"><%= ballet_level.name %></span>
-  </div>
-  <div class="ballet-level__actions flex">
-    <%= button_to "",
-                    admin_ballet_level_path(ballet_level),
-                    method: :delete,
-                    class: "admin-button touch delete" %>
-    <%= link_to "",
-                  edit_admin_ballet_level_path(ballet_level),
-                  class: "admin-button touch edit" %>
-  </div>
-</div>
+<%= render Admin::CardComponent.new(
+    title: ballet_level.name,
+    subtitle: ballet_level.description.present? ? ballet_level.description : "No description provided",
+    actions: [
+      {
+        text: "View",
+        path: admin_ballet_level_path(ballet_level),
+        variant: :secondary,
+        icon: '<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+        </svg>'
+      },
+      {
+        text: "Edit",
+        path: edit_admin_ballet_level_path(ballet_level),
+        variant: :secondary,
+        icon: '<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+        </svg>'
+      },
+      {
+        text: "Delete",
+        path: admin_ballet_level_path(ballet_level),
+        variant: :danger,
+        method: :delete,
+        icon: '<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>',
+        data: { confirm: "Are you sure you want to delete this ballet level?" }
+      }
+    ]
+  ) %>
 <% end %>

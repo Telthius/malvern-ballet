@@ -1,18 +1,127 @@
-<section id="timetable" class="timetables flex col" data-header-target="other">
-  <%= render "shared/header" %>
-  <div class="year-cont flex jc-c">
-    <a class=year><%= Date.current.year %></a>
+<section class="min-h-screen bg-gradient-to-br from-white to-primary-50/20">
+  <!-- Hero Section -->
+  <div class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <!-- Decorative accent line -->
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-8 rounded-full"></div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-light text-neutral-900 mb-6 leading-tight">
+        Class Timetable
+      </h1>
+
+      <p class="text-xl sm:text-2xl text-neutral-600 font-body font-light max-w-3xl mx-auto leading-relaxed">
+        View our weekly class schedule and find the perfect time for your ballet journey.
+      </p>
+    </div>
   </div>
-  <div><%= @timetable_classes&.term %></div>
-  <div class="term-cont flex" data-controller="timetable" data-timetable-index-value="<%= @timetable_classes&.term %>" data-timetable-term-class="term-box">
-    <%= link_to "Term 1", timetable_path(id: '1'), class: "term term1", data: { timetable_target: "term1" } %>
-    <%= link_to "Term 2", timetable_path(id: '2'), class: "term term2", data: { timetable_target: "term2" } %>
-    <%= link_to "Term 3", timetable_path(id: '3'), class: "term term3", data: { timetable_target: "term3" } %>
-    <%= link_to "Term 4", timetable_path(id: '4'), class: "term term4", data: { timetable_target: "term4" } %>
+
+  <!-- Term Selection -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <div class="bg-white rounded-2xl shadow-soft border border-neutral-100 p-8">
+      <!-- Current Term Display -->
+      <div class="text-center mb-8">
+        <div class="w-16 h-1 bg-gradient-to-r from-primary-400 to-accent-400 mx-auto mb-4 rounded-full"></div>
+        <h2 class="text-2xl font-display font-medium text-neutral-800 mb-2">
+          <%= @current_term.present? ? "Term #{@current_term}" : "Current Term" %>
+        </h2>
+        <% if @timetable&.start_date && @timetable&.end_date %>
+        <p class="text-sm text-neutral-500 font-body mt-2">
+          <%= @timetable.start_date.strftime("%B %d") %> - <%= @timetable.end_date.strftime("%B %d, %Y") %>
+        </p>
+        <% end %>
+      </div>
+
+      <!-- Term Navigation -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <%= link_to timetable_path(id: '1'), 
+            class: "px-6 py-3 rounded-xl font-body font-medium transition-all duration-300 #{@current_term == '1' ? 'bg-primary-600 text-white shadow-medium' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}" do %>
+        Term 1
+        <% end %>
+
+        <%= link_to timetable_path(id: '2'), 
+            class: "px-6 py-3 rounded-xl font-body font-medium transition-all duration-300 #{@current_term == '2' ? 'bg-primary-600 text-white shadow-medium' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}" do %>
+        Term 2
+        <% end %>
+
+        <%= link_to timetable_path(id: '3'), 
+            class: "px-6 py-3 rounded-xl font-body font-medium transition-all duration-300 #{@current_term == '3' ? 'bg-primary-600 text-white shadow-medium' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}" do %>
+        Term 3
+        <% end %>
+
+        <%= link_to timetable_path(id: '4'), 
+            class: "px-6 py-3 rounded-xl font-body font-medium transition-all duration-300 #{@current_term == '4' ? 'bg-primary-600 text-white shadow-medium' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}" do %>
+        Term 4
+        <% end %>
+      </div>
+    </div>
   </div>
-  <% if @timetable_classes.empty %>
-  <%= render "not_found" %>
-  <% else %>
-  <%= render "timetable", :timetable_classes => @timetable_classes %>
-  <% end %>
+
+  <!-- Timetable Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <% if @timetable_classes&.empty %>
+    <!-- No Classes Found -->
+    <div class="text-center py-20">
+      <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-full flex items-center justify-center">
+        <svg class="w-12 h-12 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-display font-medium text-neutral-800 mb-4">No Classes Scheduled</h3>
+      <p class="text-neutral-600 font-body max-w-2xl mx-auto">
+        Classes for this term haven't been scheduled yet. Please check back later or contact us for more information.
+      </p>
+      <div class="mt-8">
+        <%= link_to "Contact Us", "mailto:info@malvernballet.com", 
+              class: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-body font-semibold rounded-xl shadow-soft hover:shadow-medium hover:from-primary-700 hover:to-primary-800 transition-all duration-300" %>
+      </div>
+    </div>
+    <% else %>
+    <!-- Timetable Component -->
+    <%= render Shared::TimetableComponent.new(
+        timetable_classes: @timetable_classes,
+        timetable: @timetable,
+        current_term: @current_term
+      ) %>
+    <% end %>
+  </div>
+
+  <!-- Additional Information -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Class Information -->
+      <div class="bg-white rounded-2xl p-8 shadow-soft border border-neutral-100">
+        <div class="w-12 h-1 bg-gradient-to-r from-primary-400 to-accent-400 mb-6 rounded-full"></div>
+        <h3 class="text-xl font-display font-medium text-neutral-800 mb-4">Class Information</h3>
+        <ul class="space-y-3 text-neutral-600 font-body">
+          <li class="flex items-center">
+            <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+            Classes run for the full term duration
+          </li>
+          <li class="flex items-center">
+            <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+            Please arrive 10 minutes before class starts
+          </li>
+          <li class="flex items-center">
+            <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+            Wear appropriate ballet attire and shoes
+          </li>
+        </ul>
+      </div>
+
+      <!-- Enrolment CTA -->
+      <div class="bg-gradient-to-r from-accent-50 to-primary-50 rounded-2xl p-8 border border-accent-100">
+        <div class="w-12 h-1 bg-gradient-to-r from-accent-400 to-primary-400 mb-6 rounded-full"></div>
+        <h3 class="text-xl font-display font-medium text-neutral-800 mb-4">Ready to Join?</h3>
+        <p class="text-neutral-600 font-body mb-6">
+          Found a class that fits your schedule? Enrol now to secure your spot!
+        </p>
+        <div class="space-y-3">
+          <%= link_to "View All Classes", ballet_levels_path, 
+              class: "block w-full text-center px-6 py-3 bg-gradient-to-r from-accent-600 to-accent-700 text-white font-body font-semibold rounded-xl shadow-soft hover:shadow-medium hover:from-accent-700 hover:to-accent-800 transition-all duration-300" %>
+          <%= link_to "Register Interest", new_enrolment_path, 
+              class: "block w-full text-center px-6 py-3 bg-white text-accent-600 font-body font-semibold rounded-xl border-2 border-accent-200 hover:border-accent-300 hover:bg-accent-50 transition-all duration-300" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

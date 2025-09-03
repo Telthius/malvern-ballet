@@ -1,0 +1,37 @@
+<div class="bg-gradient-to-br from-white to-primary-50/20 rounded-2xl shadow-strong overflow-hidden group hover:shadow-strong transition-all duration-500 transform hover:-translate-y-2">
+  <div class="md:flex">
+    <!-- Image Section -->
+    <div class="md:w-1/3 relative overflow-hidden">
+      <div class="h-64 md:h-full">
+        <%= image_tag image, 
+            class: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-700", 
+            alt: name %>
+      </div>
+      <!-- Subtle overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="md:w-2/3 p-6 md:p-8 relative">
+      <!-- Decorative accent line -->
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <div class="space-y-6">
+        <!-- Name and Role -->
+        <div>
+          <h3 class="text-2xl font-display font-semibold text-neutral-900 mb-3 leading-tight group-hover:text-primary-700 transition-colors duration-300">
+            <%= name %>
+          </h3>
+          <p class="text-lg text-primary-500 font-medium font-body bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
+            <%= role %>
+          </p>
+        </div>
+
+        <!-- Bio -->
+        <div class="text-neutral-600 leading-relaxed font-body text-base">
+          <%= bio.html_safe %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

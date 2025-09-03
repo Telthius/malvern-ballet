@@ -1,0 +1,21 @@
+<%= render Admin::FormComponent.new(
+  form_object: cost,
+  submit_text: cost.persisted? ? "Update Cost" : "Create Cost",
+  cancel_path: admin_ballet_level_path(@ballet_level),
+  parent_objects: [@ballet_level],
+  fields: [
+    {
+      name: :amount,
+      label: "Amount",
+      type: :number,
+      placeholder: "e.g., 150.00",
+      autofocus: true
+    },
+    {
+      name: :condition,
+      label: "Condition",
+      type: :text,
+      placeholder: "e.g., Per term, Per class, Early bird discount"
+    }
+  ]
+) %>

@@ -1,19 +1,21 @@
-<div data-controller="carousel" class="gallery swiper swiper-initialized swiper-horizontal swiper-pointer-events"
-    data-carousel-options-value='{
-    "pagination": { "el": ".swiper-pagination", 
-                    "dynamicBullets": "true" },
-    "navigation": { "nextEl": ".swiper-button-next", 
-                    "prevEl": ".swiper-button-prev"}}'>
-  <div class="swiper-wrapper">
-    <% @gallery.pictures.each do |picture|%>
-      <% if picture.representable? %>
-        <div class= "swiper-slide gallery__picture flex jc-c"><%= image_tag picture, class: "picture", alt: "ballet picture gallery" %></div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="swiper-pagination"></div>
+<!-- Gallery Section -->
+<section class="py-20 bg-gradient-to-br from-accent-50/30 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-display font-bold text-neutral-900 mb-4">Our Students in Action</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-6"></div>
+      <p class="text-lg text-neutral-600 font-body leading-relaxed max-w-2xl mx-auto">
+        Take a look at some of our talented students and the beautiful moments we capture in our classes. Each image tells a story of dedication, passion, and artistic growth.
+      </p>
+    </div>
 
-  <!-- Navigation buttons (< >) -->
-  <div class="swiper-button-prev gallery__button"></div>
-  <div class="swiper-button-next gallery__button"></div>
-</div>
+    <%= render Shared::GalleryComponent.new(
+          images: @gallery&.pictures || [],
+          title: nil,
+          subtitle: nil,
+          columns: 4,
+          show_captions: false
+        ) %>
+  </div>
+</section>

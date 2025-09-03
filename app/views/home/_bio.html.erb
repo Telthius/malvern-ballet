@@ -1,0 +1,16 @@
+<section class="py-20 bg-gradient-to-br from-white to-primary-50/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-display font-bold text-neutral-900 mb-4">Meet Our Director</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
+    </div>
+
+    <%= render Shared::ProfileCardComponent.new(
+          name: "Saba Polderman-Charles",
+          role: "Director",
+          image: "saba.webp",
+          bio: "Malvern Ballet School is passionate about bringing a high quality dance education to all students and assisting them to reach their full potential. Along with a focus on technique, strength and artistry, we strive to create a positive and encouraging environment for young and old to excel!<br><br>Miss Saba is dedicated to developing each of her students as individuals and is a registered teacher with the Royal Academy of Dance."
+        ) %>
+  </div>
+</section>

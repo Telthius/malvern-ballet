@@ -14,7 +14,10 @@
   <%= favicon_link_tag asset_path("favicon.ico") %>
 </head>
 
-<body data-controller="header" data-header-picturein-class="logo" data-header-pictureout-class="secondary" data-header-logo-class="logo-secondary" data-header-blue-class="header-colour" data-header-underline-class="button-underline">
+<body>
+
+  <!-- Header -->
+  <%= render Layout::HeaderComponent.new(current_page: controller_name == "home" ? "home" : controller_name) %>
 
   <% if notice %>
   <p class="notice"><%= notice %></p>
@@ -24,7 +27,9 @@
   <% end %>
 
   <%= yield %>
-  <%= render "shared/footer" %>
+
+  <!-- Footer -->
+  <%= render Layout::FooterComponent.new %>
 </body>
 
 </html>

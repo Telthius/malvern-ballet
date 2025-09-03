@@ -1,0 +1,9 @@
+<% if link? %>
+<%= link_to link, class: button_classes, **options do %>
+<%= text %>
+<% end %>
+<% else %>
+<button type="button" class="<%= button_classes %>" <%= options.map { |k, v| "#{k}=\"#{v}\"" }.join(" ").html_safe %>>
+  <%= text %>
+</button>
+<% end %>

@@ -1,44 +1,133 @@
-<section data-header-target="other">
-
-  <%= render "shared/header" %>
-  
-  <div class="back_container flex">
-    <%= link_to ballet_levels_path, class: "flex" do %>
-      <div class="swiper-button-prev back_arrow"></div>
-      <h1 class="back_text">Back to Ballet Classes</h1>
+<section class="min-h-screen bg-gradient-to-br from-white to-primary-50/20">
+  <!-- Back Navigation -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <%= link_to ballet_levels_path, class: "inline-flex items-center text-primary-600 hover:text-primary-700 font-body font-medium transition-colors duration-300 group" do %>
+    <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    <span>Back to Ballet Classes</span>
     <% end %>
   </div>
 
-  <div class="class_cont flex">
-    <div class="class_picture_cont flex jc-c">
-      <%= image_tag @ballet_class.picture, class: "ballet-class__picture ballet-class__picture-show" %>
-    </div>
-    <div class="class_details_cont">
-      <div class="card_details_cont flex col">
-        <p class="ballet-class__name ballet-class__name-show"><%= @ballet_class.name %></p>
-        <div class="class_details flex col">
-          <p class="class_description"><%= @ballet_class.description_for_view %></p>
-          <div class="class_description_footer flex col">
-            <div class="class_pricing flex col jc-fe">
-              <% @ballet_class.costs.order(amount: :asc).each do |cost|%>
-                <div class="flex">
-                  <p class="class_price">Cost - $<%= sprintf('%.2f', cost.amount) %></p>
-                  <p class="price_description"><%= cost.condition %></p>
-                </div>
-              <% end %>
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
+      <!-- Image Section -->
+      <div class="order-2 lg:order-1">
+        <div class="relative">
+          <% if @ballet_class.picture.representable? %>
+          <div class="relative overflow-hidden rounded-2xl shadow-strong">
+            <%= image_tag @ballet_class.picture, 
+                  class: "w-full h-auto object-cover",
+                  alt: "#{@ballet_class.name} ballet class" %>
+
+            <!-- Subtle overlay for depth -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/10 to-transparent rounded-2xl"></div>
+          </div>
+          <% else %>
+          <!-- Placeholder for classes without images -->
+          <div class="w-full aspect-[4/3] bg-gradient-to-br from-primary-100 to-accent-100 rounded-2xl flex items-center justify-center shadow-strong">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full flex items-center justify-center">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <p class="text-primary-600 font-body font-medium text-lg">Ballet Class</p>
             </div>
-            <div class="flex jc-c ai-fe">
-              <% if @ballet_class.name == "Bootybarre" %>
-                <%= link_to "Book a Class!", bootybarre_path, class: "enrol_class" %>
-              <% elsif  @ballet_class.name != "Open Class" %>
-                <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="enrol_class">Enrol Now</a>
-              <% end %>
+          </div>
+          <% end %>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="mt-8 pt-8 border-t border-neutral-200">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="text-center p-4 bg-white rounded-lg shadow-soft border border-neutral-100">
+              <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-primary-100 to-accent-100 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h4 class="font-display font-medium text-neutral-800 mb-1">Professional Training</h4>
+              <p class="text-sm text-neutral-600 font-body">Expert instruction from qualified teachers</p>
+            </div>
+
+            <div class="text-center p-4 bg-white rounded-lg shadow-soft border border-neutral-100">
+              <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-primary-100 to-accent-100 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+              <h4 class="font-display font-medium text-neutral-800 mb-1">Nurturing Environment</h4>
+              <p class="text-sm text-neutral-600 font-body">Positive and encouraging atmosphere</p>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Content Section -->
+      <div class="order-1 lg:order-2">
+        <!-- Header -->
+        <div class="mb-8">
+          <!-- Decorative accent line -->
+          <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mb-6 rounded-full"></div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-light text-neutral-900 mb-6 leading-tight">
+            <%= @ballet_class.name %>
+          </h1>
+        </div>
+
+        <!-- Description -->
+        <% if @ballet_class.description.present? %>
+        <div class="mb-8">
+          <div class="prose prose-lg max-w-none">
+            <div class="bg-white rounded-xl p-6 shadow-soft border border-neutral-100">
+              <h3 class="text-lg font-display font-medium text-neutral-800 mb-4">About This Class</h3>
+              <div class="text-neutral-600 font-body leading-relaxed">
+                <%= @ballet_class.description_for_view %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        <!-- Pricing Section -->
+        <% if @ballet_class.costs.any? %>
+        <div class="mb-8">
+          <div class="bg-gradient-to-br from-white to-primary-50/30 rounded-xl p-6 shadow-soft border border-neutral-100">
+            <h3 class="text-lg font-display font-medium text-neutral-800 mb-4">Class Pricing</h3>
+            <div class="space-y-3">
+              <% @ballet_class.costs.order(amount: :asc).each do |cost| %>
+              <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-neutral-100">
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full mr-3"></div>
+                  <span class="text-neutral-600 font-body"><%= cost.condition %></span>
+                </div>
+                <span class="text-lg font-display font-semibold text-primary-700">
+                  $<%= sprintf('%.2f', cost.amount) %>
+                </span>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        <!-- Call to Action -->
+        <div class="mt-8">
+          <% if @ballet_class.name != "Open Class" %>
+          <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-600 to-accent-700 text-white font-body font-semibold rounded-xl shadow-strong hover:shadow-strong hover:from-accent-700 hover:to-accent-800 transition-all duration-300 transform hover:-translate-y-1">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+            Enrol Now
+          </a>
+          <% end %>
+        </div>
+
+
+      </div>
     </div>
   </div>
-
-
 </section>

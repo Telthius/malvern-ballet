@@ -1,0 +1,25 @@
+<div class="bg-white rounded-xl border border-neutral-200 p-6 hover:shadow-medium transition-all duration-300 hover:border-primary-200">
+  <div class="flex items-center justify-between">
+    <div class="flex-1">
+      <h3 class="text-lg font-display font-semibold text-neutral-800 mb-1"><%= title %></h3>
+      <% if subtitle.present? %>
+      <p class="text-neutral-600 font-body text-sm"><%= subtitle %></p>
+      <% end %>
+    </div>
+
+    <% if actions.any? %>
+    <div class="flex items-center gap-2 ml-4">
+      <% actions.each do |action| %>
+      <%= link_to action[:path], 
+            class: action[:class] || default_action_classes(action[:variant] || :secondary),
+            data: (action[:data] || {}).merge(action[:method] ? { "turbo-method": action[:method] } : {}) do %>
+      <% if action[:icon].present? %>
+      <%= action[:icon].html_safe %>
+      <% end %>
+      <%= action[:text] %>
+      <% end %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

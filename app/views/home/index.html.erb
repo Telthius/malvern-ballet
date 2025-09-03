@@ -1,49 +1,22 @@
-<section id= "home" class= "home__cont flex col">
-  <div class= "home__upper flex col jc-sb">
-    <%= render "shared/header" %>
-    <%= render "shared/title" %>
-  </div>
-  <div data-header-target= "home" class= "home__lower">
-  </div>
-</section>
+<!-- Hero Section -->
+<%= render "hero" %>
 
-<section class=banner> 
-  <%= image_tag "banner.webp", class: "banner-pic", alt: "ballet kids"%>
-</section>
+<!-- Bio Section -->
+<%= render "bio" %>
 
-<section class=bio>
-  <div class="card">
-    <%= image_tag "saba.webp", class: "card__picture", alt:"ballet teacher"%>
-    <div class="card__description">
-      <div class="card_details_cont flex col">
-        <p class="ballet-class__name ballet-class__name-show">Saba Polderman-Charles - Director</p>
-        <div class="class_details flex col">
-          <p class="class_description"><p>Malvern Ballet School is passionate about bringing a high quality dance education to all students and assisting them to reach their full potential. Along with a focus on technique, strength and artistry, we strive to create a positive and encouraging environment for young and old to excel!<br><br>Miss Saba is dedicated to developing each of her students as individuals and is a registered teacher with the Royal Academy of Dance.<br><br>"Great things are done by a series of small things brought together" - Vincent Van Gogh</p>
-        <div>
-      <div>
-    </div> 
-  </div>
-</section>
+<!-- About Section -->
+<%= render "about" %>
 
+<!-- Gallery Section -->
+<%= render "gallery" %>
 
-<section class="about flex col">
-  <div class="portrait__container flex row-reverse">
-    <%= image_tag "portrait-home.webp", class: "portrait", alt: "ballet girl"%>
-    <div class="register__container flex"></div>
-    <div class="register__line flex jc-c ai-fe">
-      <%= link_to "Register your interest!", enrolments_path, class: "register__button" %>
-    </div>
-  </div>
-  <div class="landscape__container flex">
-    <%= render "gallery" %>
-    <div  class="vertical_line">
-    </div>
-  </div>
-  <hr class="horizontal_line">
-  <div class="quote_cont flex">
-    <h1 class=inspiring_quote>Inspiring tomorrows dancers.</h1>
-  </div>
-</section>
-<script>
-  document.getElementById("home").style.height = `${window.innerHeight}px`;
-</script>
+<!-- Testimonials Section -->
+<%= render "testimonials" %>
+
+<!-- Call to Action Section -->
+<%= render Shared::CtaComponent.new(
+      title: "Ready to Start Your Ballet Journey?",
+      subtitle: "Join our community of dancers and discover your potential with professional instruction in a supportive environment.",
+      button_text: "Enrol Now",
+      button_link: new_enrolment_path,
+      background: :neutral) %>

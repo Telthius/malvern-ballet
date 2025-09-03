@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home', to: 'home#index'
 
+  # Development-only design system
+  if Rails.env.development?
+    get 'design-system', to: 'design_system#index', as: :design_system
+  end
+
   namespace :admin do
     resources :timetables do
       resources :ballet_classes do 
@@ -14,10 +19,12 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :ballet_levels
+    resources :ballet_levels do
+      resources :costs, except: [:index, :show]
+    end
   end
 
-  get 'bootybarre', to: 'bootybarre#index'
+
 
   resources 'enrolments'
 

@@ -1,20 +1,34 @@
-<section data-header-target="other">
+<section class="min-h-screen bg-gradient-to-br from-white to-primary-50/20">
+  <!-- Hero Section -->
+  <div class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <!-- Decorative accent line -->
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-8 rounded-full"></div>
 
-  <%= render "shared/header" %>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-light text-neutral-900 mb-6 leading-tight">
+        Ballet Classes
+      </h1>
 
-  <div class="classes_cont flex">
-    <% @ballet_classes.each do |ballet_class|%>
-      <div class="ballet-class flex col">
-        <div class="ballet-class__picture-cont">
-          <%= link_to ballet_level_path(id: ballet_class.name) do %>
-            <% if ballet_class.picture.representable? %>
-              <%= image_tag ballet_class.picture, class: "ballet-class__picture" %>
-            <% end %>
-            <div class="ballet-class__name-cont"><p class="ballet-class__name"><%= ballet_class.name %></p></div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+      <p class="text-xl sm:text-2xl text-neutral-600 font-body font-light max-w-3xl mx-auto leading-relaxed">
+        Discover our comprehensive range of ballet classes designed to nurture talent, build confidence, and inspire a lifelong love of dance.
+      </p>
+    </div>
   </div>
-  
+
+  <!-- Classes Grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <% @ballet_classes.each do |ballet_class| %>
+      <%= render Shared::ClassCardComponent.new(ballet_class: ballet_class) %>
+      <% end %>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-16">
+      <div class="inline-flex items-center space-x-2 text-neutral-600 font-body">
+        <span>Ready to start your ballet journey?</span>
+        <%= link_to "Contact Us", new_enrolment_path, class: "text-primary-600 hover:text-primary-700 font-medium underline underline-offset-2 transition-colors duration-300" %>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,0 +1,90 @@
+<%= form_with(model: form_object, class: "space-y-8") do |form| %>
+
+<% if title.present? %>
+<div class="text-center mb-8">
+  <h2 class="text-3xl sm:text-4xl font-display font-light text-neutral-900 mb-4">
+    <%= title %>
+  </h2>
+  <!-- Decorative accent line -->
+  <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full"></div>
+</div>
+<% end %>
+
+<div class="space-y-6">
+  <!-- Name Field -->
+  <div class="form-field">
+    <%= form.label :name, "Full Name", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+    <%= form.text_field :name, 
+          class: "w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900 placeholder-neutral-400",
+          placeholder: "Enter your full name" %>
+  </div>
+
+  <!-- Email Field -->
+  <div class="form-field">
+    <%= form.label :email, "Email Address", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+    <%= form.email_field :email, 
+          class: "w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900 placeholder-neutral-400",
+          placeholder: "Enter your email address" %>
+  </div>
+
+  <!-- Age Field -->
+  <div class="form-field">
+    <%= form.label :age_of_child, "Age of Dancer", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+    <%= form.number_field :age_of_child, 
+          in: 1..100, 
+          class: "w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900",
+          placeholder: "Select age" %>
+  </div>
+
+  <!-- Experience Checkbox -->
+  <div class="form-field">
+    <div class="flex items-center">
+      <%= form.check_box :any_prior_experience, 
+            class: "h-5 w-5 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded transition-all duration-200" %>
+      <%= form.label :any_prior_experience, "Prior dance experience?", 
+            class: "ml-3 text-sm font-medium text-neutral-700" %>
+    </div>
+  </div>
+
+  <!-- Comments Field -->
+  <div class="form-field">
+    <%= form.label :comments_and_queries, "Questions or Comments", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+    <%= form.text_area :comments_and_queries, 
+          rows: 4,
+          class: "w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900 placeholder-neutral-400 resize-none",
+          placeholder: "Tell us about your dance goals or ask any questions..." %>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="pt-4">
+    <%= form.submit submit_text, 
+          class: submit_button_classes,
+          data: { disable_with: "Submitting..." } %>
+  </div>
+</div>
+
+<!-- Error Messages -->
+<% if form_object.errors.any? %>
+<div class="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+  <div class="flex">
+    <div class="flex-shrink-0">
+      <svg class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+      </svg>
+    </div>
+    <div class="ml-3">
+      <h3 class="text-sm font-medium text-red-800">
+        Please correct the following errors:
+      </h3>
+      <div class="mt-2 text-sm text-red-700">
+        <ul class="list-disc pl-5 space-y-1">
+          <% form_object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>

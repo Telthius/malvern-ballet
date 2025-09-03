@@ -1,11 +1,49 @@
-<main class="container">
-  <%= link_to sanitize("&larr; Back to ballet classes"), admin_timetable_path(@timetable) %>
-  <div class="admin-heading-cont flex jc-sa">
-    <h1 class="admin-heading"><%= @ballet_class.class_name %></h1>
-    <div class="as-c"><%= link_to "Add Class Time", new_admin_timetable_ballet_class_class_time_path(@timetable, @ballet_class), class:"admin-new-button", data: { turbo_frame: dom_id(ClassTime.new) } %></div>
-  </div>
-  <%= turbo_frame_tag ClassTime.new %>
-  <%= turbo_frame_tag "class_times" do %>
-  <%= render @class_times %>
+<!-- Back Link -->
+<div class="mb-4">
+  <%= link_to admin_timetable_path(@timetable), 
+      class: "inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors duration-300" do %>
+  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+  </svg>
+  Back to <%= @timetable.name %>
   <% end %>
-</main>
+</div>
+
+<%= render Admin::PageHeaderComponent.new(
+  title: @ballet_class.class_name,
+  subtitle: "#{@ballet_class.ballet_level&.name} • #{@timetable.name}",
+  actions: [
+    {
+      text: "Add Class Time",
+      path: new_admin_timetable_ballet_class_class_time_path(@timetable, @ballet_class),
+      variant: :primary,
+      icon: '<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+      </svg>',
+      data: { turbo_frame: dom_id(ClassTime.new) }
+    }
+  ]
+) %>
+
+<!-- New Class Time Form (Turbo Frame) -->
+<%= turbo_frame_tag ClassTime.new %>
+
+<%= turbo_frame_tag "class_times" do %>
+<%= render Admin::ListComponent.new(
+    title: "Class Times",
+    items: @class_times,
+    empty_state: {
+      icon: content_tag(:svg, class: "w-8 h-8 text-neutral-400", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") do
+        content_tag(:path, "", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z")
+      end,
+      title: "No Class Times Yet",
+      description: "Add class times to schedule when this ballet class runs.",
+      action: {
+        text: "Add Class Time",
+        path: new_admin_timetable_ballet_class_class_time_path(@timetable, @ballet_class),
+        class: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-body font-semibold rounded-xl shadow-strong hover:shadow-strong hover:from-primary-700 hover:to-primary-800 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500",
+        data: { turbo_frame: dom_id(ClassTime.new) }
+      }
+    }
+  ) %>
+<% end %>

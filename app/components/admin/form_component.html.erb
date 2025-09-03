@@ -1,0 +1,78 @@
+<%= form_with model: form_model, class: "space-y-6" do |f| %>
+<!-- Error Messages -->
+<% if form_object.errors.any? %>
+<div class="bg-red-50 border border-red-200 rounded-xl p-4">
+  <div class="flex">
+    <div class="flex-shrink-0">
+      <svg class="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+    </div>
+    <div class="ml-3">
+      <h3 class="text-sm font-body font-medium text-red-800">Please correct the following errors:</h3>
+      <div class="mt-2 text-sm text-red-700">
+        <ul class="list-disc list-inside space-y-1">
+          <% form_object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<!-- Form Card -->
+<div class="bg-white rounded-2xl shadow-soft border border-neutral-200 p-6">
+  <div class="flex items-center justify-between mb-6">
+    <h3 class="text-lg font-display font-semibold text-neutral-800">
+      <%= form_title %>
+    </h3>
+    <div class="w-12 h-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full"></div>
+  </div>
+
+  <!-- Form Fields -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <% fields.each do |field| %>
+    <div class="space-y-2">
+      <% if field[:type] == :checkbox %>
+      <div class="flex items-center">
+        <%= render_field(f, field) %>
+        <%= f.label field[:name], field[:label], class: "ml-3 #{label_classes}" %>
+      </div>
+      <% elsif field[:type] == :file %>
+      <%= f.label field[:name], field[:label], class: label_classes %>
+      <%= render_field(f, field) %>
+      <% if form_object.respond_to?(field[:name]) && form_object.send(field[:name]).attached? %>
+      <div class="mt-2 p-3 bg-neutral-50 border border-neutral-200 rounded-lg">
+        <p class="text-sm text-neutral-600 font-body">
+          <span class="font-medium">Current file:</span>
+          <%= form_object.send(field[:name]).filename %>
+        </p>
+      </div>
+      <% end %>
+      <% else %>
+      <%= f.label field[:name], field[:label], class: label_classes %>
+      <%= render_field(f, field) %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- Form Actions -->
+  <div class="flex items-center justify-end gap-4 mt-8 pt-6 border-t border-neutral-200">
+    <% if cancel_path %>
+    <%= link_to "Cancel", cancel_path, 
+              class: "inline-flex items-center px-6 py-3 bg-white text-neutral-600 border-2 border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50 font-body font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500" %>
+    <% end %>
+
+    <%= button_tag type: "submit", 
+            class: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-body font-semibold rounded-xl shadow-strong hover:shadow-strong hover:from-primary-700 hover:to-primary-800 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" do %>
+    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <%= submit_text %>
+    <% end %>
+  </div>
+</div>
+<% end %>

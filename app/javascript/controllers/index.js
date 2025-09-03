@@ -9,8 +9,10 @@ import Dropdown from "stimulus-dropdown";
 application.register("carousel", Carousel);
 application.register("dropdown", Dropdown);
 
-import HeaderController from "./header_controller"
-application.register("header", HeaderController)
+
+
+import MobileMenuController from "./mobile_menu_controller"
+application.register("mobile-menu", MobileMenuController)
 
 import RemovalsController from "./removals_controller"
 application.register("removals", RemovalsController)
@@ -20,3 +22,6 @@ application.register("submit", SubmitController)
 
 import TimetableController from "./timetable_controller"
 application.register("timetable", TimetableController)
+
+import LightboxController from "./lightbox_controller"
+application.register("lightbox", LightboxController)

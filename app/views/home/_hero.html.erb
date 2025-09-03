@@ -1,0 +1,59 @@
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image with Enhanced Overlay -->
+  <div class="absolute inset-0 z-0">
+    <%= image_tag "hero.webp", 
+        class: "w-full h-full object-cover",
+        alt: "Ballet students performing" %>
+    <!-- Enhanced gradient overlay for light backgrounds -->
+    <div class="absolute inset-0 bg-gradient-to-br from-neutral-900/60 via-primary-800/50 to-accent-700/40"></div>
+    <!-- Subtle pattern overlay for texture -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=" 60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" %3E%3Cg fill="none" fill-rule="evenodd" %3E%3Cg fill="%23ffffff" fill-opacity="0.05" %3E%3Ccircle cx="30" cy="30" r="2" /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+  </div>
+
+  <!-- Content Overlay with Elegant Brand Animation -->
+  <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <!-- Main Brand Title with Sliding Animation -->
+    <div class="mb-12">
+      <!-- Malvern -->
+      <div class="flex items-center justify-center mb-2">
+        <h1 class="text-8xl sm:text-9xl lg:text-[10rem] font-brand leading-tight drop-shadow-2xl text-white" style="font-weight: 100; font-stretch: 75%; letter-spacing: 0.1em;">
+          Malvern
+        </h1>
+        <div class="w-32 h-0.5 bg-gradient-to-l from-transparent via-white to-white opacity-60 ml-4"></div>
+      </div>
+
+      <!-- Ballet School -->
+      <div class="flex items-center justify-center">
+        <div class="w-32 h-0.5 bg-gradient-to-r from-transparent via-white to-white opacity-60 mr-4"></div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-light leading-tight drop-shadow-lg text-white tracking-widest uppercase">
+          Ballet School
+        </h2>
+      </div>
+    </div>
+
+    <!-- Tagline -->
+    <div class="mb-12" style="animation: fadeIn 1s ease-in-out 1s both;">
+      <p class="text-xl sm:text-2xl lg:text-3xl text-white font-display font-light leading-relaxed max-w-3xl mx-auto drop-shadow-lg opacity-90">
+        Inspiring tomorrow's dancers today!
+      </p>
+    </div>
+
+    <!-- Enhanced Call to Action Button -->
+    <div class="transform hover:scale-105 transition-transform duration-300" style="animation: fadeIn 1s ease-in-out 1.5s both;">
+      <%= render Shared::ButtonComponent.new(
+            text: "Register Your Interest",
+            link: new_enrolment_path,
+            variant: :cta,
+            size: :large
+          ) %>
+    </div>
+  </div>
+
+  <!-- Enhanced Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-float">
+    <div class="w-8 h-12 border-2 border-white/80 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
+      <div class="w-1.5 h-4 bg-white rounded-full mt-2 animate-bounce"></div>
+    </div>
+    <p class="text-white/80 text-sm mt-2 font-body">Scroll</p>
+  </div>
+</section>
