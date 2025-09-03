@@ -53,37 +53,41 @@
   --shadow-strong: 0 10px 40px -10px rgba(168, 85, 247, 0.18), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* Local font declarations */
+/* Local font declarations - Safari iOS compatible */
 @font-face {
   font-family: 'Josefin Sans';
-  src: url('../fonts/JosefinSans-VariableFont_wght.ttf') format('truetype-variations');
+  src: url('../fonts/JosefinSans-VariableFont_wght.ttf') format('truetype-variations'),
+       url('../fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Josefin Sans';
-  src: url('../fonts/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  src: url('../fonts/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype-variations'),
+       url('../fonts/JosefinSans-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Nunito Sans';
-  src: url('../fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype-variations');
+  src: url('../fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype-variations'),
+       url('../fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
   font-weight: 200 1000;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Nunito Sans';
-  src: url('../fonts/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype-variations');
+  src: url('../fonts/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype-variations'),
+       url('../fonts/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
   font-weight: 200 1000;
   font-style: italic;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
@@ -91,7 +95,7 @@
   src: url('../fonts/north-wave.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 /* Custom keyframe animations */
