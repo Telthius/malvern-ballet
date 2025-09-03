@@ -1,5 +1,5 @@
 <%= turbo_stream.replace "main_header" do %>
-  <%= render "shared/header" %>
+  <%= render Layout::HeaderComponent.new(current_page: controller_name == "home" ? "home" : controller_name) %>
 <% end %>
 
 <%= render_turbo_stream_flash_messages %>

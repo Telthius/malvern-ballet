@@ -1,0 +1,19 @@
+<!-- Back Link -->
+<div class="mb-4">
+  <%= link_to admin_ballet_level_path(@ballet_level),
+      class: "inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors duration-300" do %>
+  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+  </svg>
+  Back to <%= @ballet_level.name %>
+  <% end %>
+</div>
+
+<%= render Admin::PageHeaderComponent.new(
+  title: "New Cost",
+  subtitle: "Add a new cost for #{@ballet_level.name}"
+) %>
+
+<%= turbo_frame_tag @cost do %>
+<%= render "form", ballet_level: @ballet_level, cost: @cost %>
+<% end %>

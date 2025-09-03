@@ -1,26 +1,147 @@
-<section class="enrol_section flex col" data-header-target="other">
-  <%= render "shared/header" %>
+<section class="min-h-screen bg-gradient-to-br from-white to-primary-50/20">
+  <!-- Hero Section -->
+  <div class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <!-- Decorative accent line -->
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-8 rounded-full"></div>
 
-  <div class="enrol_container flex jc-sa">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-light text-neutral-900 mb-6 leading-tight">
+        Enrolment Information
+      </h1>
 
-    <div class="flex jc-c ai-c">
-      <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="enrol_class">Enrol Now</a>
+      <p class="text-xl sm:text-2xl text-neutral-600 font-body font-light max-w-3xl mx-auto leading-relaxed">
+        Learn about our enrolment process and register your interest in joining our ballet school community.
+      </p>
     </div>
-
-    <div class="flex jc-c ai-c">
-      <a href="https://app.jackrabbitclass.com/jr3.0/ParentPortal/Login?orgId=548595" class="parent_portal">Parent Portal</a>
-    </div>
-
   </div>
 
-  <h1 class="or">Need more information?</h1>
+  <!-- Content Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-  <div class="form_container"
-  data-controller= "submit" 
-  data-submit-button-class= "button_animate" 
-  data-submit-image-class= "image_animate" >
-    <%= render "form", enrolment: @enrolment %>
+      <!-- Information Cards -->
+      <div class="space-y-8">
+        <!-- Class Information -->
+        <div class="bg-white rounded-2xl p-8 shadow-soft border border-neutral-100">
+          <div class="w-12 h-1 bg-gradient-to-r from-primary-400 to-accent-400 mb-6 rounded-full"></div>
+          <h3 class="text-2xl font-display font-medium text-neutral-900 mb-4">Class Information</h3>
+          <p class="text-neutral-600 font-body leading-relaxed mb-4">
+            We offer a comprehensive range of ballet classes for all ages and skill levels, from preschool through advanced levels.
+          </p>
+          <ul class="space-y-2 text-neutral-600 font-body">
+            <li class="flex items-center">
+              <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+              Age-appropriate curriculum
+            </li>
+            <li class="flex items-center">
+              <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+              Professional instruction
+            </li>
+            <li class="flex items-center">
+              <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+              Performance opportunities
+            </li>
+          </ul>
+        </div>
+
+        <!-- What to Expect -->
+        <div class="bg-white rounded-2xl p-8 shadow-soft border border-neutral-100">
+          <div class="w-12 h-1 bg-gradient-to-r from-primary-400 to-accent-400 mb-6 rounded-full"></div>
+          <h3 class="text-2xl font-display font-medium text-neutral-900 mb-4">What to Expect</h3>
+          <p class="text-neutral-600 font-body leading-relaxed mb-4">
+            Your first class will be an introduction to our teaching style and class structure.
+          </p>
+          <ul class="space-y-2 text-neutral-600 font-body">
+            <li class="flex items-center">
+              <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+              Warm welcome and orientation
+            </li>
+            <li class="flex items-center">
+              <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+              Age-appropriate activities
+            </li>
+            <li class="flex items-center">
+              <div class="w-2 h-2 bg-primary-400 rounded-full mr-3"></div>
+              Progress assessment
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ready to Enrol Section -->
+      <div class="bg-gradient-to-r from-accent-50 to-primary-50 rounded-2xl border border-accent-100 overflow-hidden">
+        <!-- Section Header -->
+        <div class="bg-gradient-to-r from-accent-600 to-accent-700 px-8 py-8 text-center">
+          <div class="w-16 h-1 bg-white mx-auto mb-4 rounded-full opacity-60"></div>
+          <h3 class="text-2xl font-display font-light text-white mb-2">
+            Ready to Enrol?
+          </h3>
+          <p class="text-accent-100 font-body">
+            Enrol directly in your chosen class
+          </p>
+        </div>
+
+        <!-- Content -->
+        <div class="px-8 py-8 text-center">
+          <p class="text-neutral-600 font-body mb-6">
+            If you know which class you'd like to join, you can enrol directly through our enrolment system. This is perfect for returning students or those who have already decided on their class.
+          </p>
+          <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-600 to-accent-700 text-white font-body font-semibold rounded-xl shadow-strong hover:shadow-medium hover:from-accent-700 hover:to-accent-800 transition-all duration-300 transform hover:-translate-y-1">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+            Enrol Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Interest Registration Form -->
+      <div class="bg-white rounded-2xl shadow-soft border border-neutral-100 overflow-hidden">
+        <!-- Form Header -->
+        <div class="bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-8 text-center">
+          <div class="w-16 h-1 bg-white mx-auto mb-4 rounded-full opacity-60"></div>
+          <h3 class="text-2xl font-display font-light text-white mb-2">
+            Need More Information?
+          </h3>
+          <p class="text-primary-100 font-body">
+            Register your interest for guidance
+          </p>
+        </div>
+
+        <!-- Form Content -->
+        <div class="px-8 py-8">
+          <%= render Shared::FormComponent.new(
+            form_object: @enrolment,
+            submit_text: "Submit Application",
+            submit_variant: :primary
+          ) %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-16 space-y-8">
+      <!-- Ready to Enrol Section -->
+      <div class="text-center p-8 bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl border border-primary-100">
+        <h3 class="text-2xl font-display font-medium text-neutral-800 mb-4">Ready to Enrol?</h3>
+        <p class="text-neutral-600 font-body mb-6 max-w-3xl mx-auto">
+          If you know which class you'd like to join, you can enrol directly through our enrolment system. This is perfect for returning students or those who have already decided on their class.
+        </p>
+        <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-body font-semibold rounded-xl shadow-strong hover:shadow-strong hover:from-primary-700 hover:to-primary-800 transition-all duration-300 transform hover:-translate-y-1">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+          </svg>
+          Enrol Now
+        </a>
+      </div>
+
+      <!-- View Classes Link -->
+      <div class="text-center">
+        <div class="inline-flex items-center space-x-2 text-neutral-600 font-body">
+          <span>Want to learn more about our classes first?</span>
+          <%= link_to "View Our Classes", ballet_levels_path, class: "text-primary-600 hover:text-primary-700 font-medium underline underline-offset-2 transition-colors duration-300" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <br>
 </section>

@@ -1,11 +1,15 @@
 module Admin
   class BalletLevelsController < ApplicationController
     before_action :authenticate_administrator!
-    before_action :set_ballet_level, only: [:edit, :update, :destroy]
+    before_action :set_ballet_level, only: [:show, :edit, :update, :destroy]
     layout "admin"
 
     def index
       @ballet_levels = BalletLevel.all
+    end
+
+    def show
+      @costs = @ballet_level.costs
     end
 
     def new

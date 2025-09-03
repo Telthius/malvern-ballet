@@ -1,7 +1,58 @@
-<section class="enrol_section" data-header-target="other">
-  <%= render "shared/header" %>
+<section class="min-h-screen bg-gradient-to-br from-white to-primary-50/20">
+  <!-- Hero Section -->
+  <div class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <!-- Decorative accent line -->
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-8 rounded-full"></div>
 
-  <%= render "form", enrolment: @enrolment %>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-light text-neutral-900 mb-6 leading-tight">
+        Join Our Ballet Family
+      </h1>
 
-  <br>
+      <p class="text-xl sm:text-2xl text-neutral-600 font-body font-light max-w-3xl mx-auto leading-relaxed">
+        Begin your dance journey with us. Register your interest and we'll help you find the perfect class for your dancer.
+      </p>
+    </div>
+  </div>
+
+  <!-- Ready to Enrol Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <div class="text-center p-8 bg-gradient-to-r from-accent-50 to-primary-50 rounded-2xl border border-accent-100">
+      <h2 class="text-2xl sm:text-3xl font-display font-medium text-neutral-800 mb-4">Ready to Enrol?</h2>
+      <p class="text-neutral-600 font-body mb-6 max-w-3xl mx-auto">
+        If you know which class you'd like to join, you can enrol directly through our enrolment system.
+      </p>
+      <a href="http://app.jackrabbitclass.com/regv2.asp?id=548595" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-600 to-accent-700 text-white font-body font-semibold rounded-xl shadow-strong hover:shadow-medium hover:from-accent-700 hover:to-accent-800 transition-all duration-300 transform hover:-translate-y-1">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
+        Enrol Now
+      </a>
+    </div>
+  </div>
+
+  <!-- Form Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="bg-white rounded-2xl shadow-strong border border-neutral-100 overflow-hidden">
+      <!-- Form Header -->
+      <div class="bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-12 text-center">
+        <div class="w-16 h-1 bg-white mx-auto mb-6 rounded-full opacity-60"></div>
+        <h2 class="text-3xl sm:text-4xl font-display font-light text-white mb-4">
+          Need More Information?
+        </h2>
+        <p class="text-primary-100 font-body text-lg max-w-3xl mx-auto">
+          Tell us about your dancer and we'll get back to you with personalized recommendations and next steps.
+        </p>
+      </div>
+
+      <!-- Form Content -->
+      <div class="px-8 py-12">
+        <%= render Shared::FormComponent.new(
+          form_object: @enrolment,
+          submit_text: "Submit Application",
+          submit_variant: :primary
+        ) %>
+      </div>
+    </div>
+  </div>
 </section>

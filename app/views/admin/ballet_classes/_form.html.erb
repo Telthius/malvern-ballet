@@ -1,20 +1,22 @@
-<%= form_with model: [:admin, timetable, ballet_class] do |f| %>
-<% if ballet_class.errors.any? %>
-<div class="error-message">
-  <%= ballet_class.errors.full_messages.to_sentence.capitalize %>
-</div>
-<% end %>
-
-<div class="admin-item admin-item-create flex jc-sb">
-  <div class="admin-form-fields flex ai-c">
-    <%= f.label :class_name, "Class Name: ", class: 'admin-form-field' %>
-    <%= f.text_field :class_name, input_html: { autofocus: true }, placeholder: "placeholder text", class: 'admin-form-field' %>
-    <%= f.label :ballet_level_id, "Level: ", class: 'admin-form-field' %>
-    <%= f.collection_select :ballet_level_id, BalletLevel.all, :id, :name, {prompt: true}, {class: "admin-form-field"} %>
-  </div>
-  <div class="ballet-class__actions flex">
-    <%= link_to "", admin_timetable_path(timetable), class: "admin-button touch cancel" %>
-    <%= button_tag "", class:"admin-button touch new" %>
-  </div>
-</div>
-<% end %>
+<%= render Admin::FormComponent.new(
+  form_object: ballet_class,
+  submit_text: ballet_class.persisted? ? "Update Ballet Class" : "Create Ballet Class",
+  cancel_path: admin_timetable_path(timetable),
+  parent_objects: [timetable],
+  fields: [
+    {
+      name: :class_name,
+      label: "Class Name",
+      type: :text,
+      placeholder: "e.g., Pre-Primary Ballet",
+      autofocus: true
+    },
+    {
+      name: :ballet_level_id,
+      label: "Ballet Level",
+      type: :select,
+      options: BalletLevel.all.map { |level| [level.name, level.id] },
+      prompt: 'Select ballet level'
+    }
+  ]
+) %>

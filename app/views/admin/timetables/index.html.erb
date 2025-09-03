@@ -1,14 +1,38 @@
-<section data-header-target="other" class="admin-main">
+<%= render Admin::PageHeaderComponent.new(
+  title: "Timetables",
+  subtitle: "Manage your class schedules and terms",
+  actions: [
+    {
+      text: "Add Timetable",
+      path: new_admin_timetable_path,
+      variant: :primary,
+      icon: '<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+      </svg>',
+      data: { "turbo-frame": dom_id(Timetable.new) }
+    }
+  ]
+) %>
 
-  <div class="admin-heading-cont flex jc-sa">
-    <h1 class="admin-heading">Timetables</h1>
-    <div class="as-c"><%= link_to "Add Timetable", new_admin_timetable_path, class:"admin-new-button", data: { turbo_frame: dom_id(Timetable.new) } %></div>
-  </div>
-  <div>
-    <%= turbo_frame_tag Timetable.new %>
-    <%= turbo_frame_tag "timetables" do %>
-    <%= render @timetables %>
-    <% end %>
-  </div>
+<!-- New/Edit Form (Turbo Frame) -->
+<%= turbo_frame_tag Timetable.new %>
 
-</section>
+<%= turbo_frame_tag "timetables" do %>
+<%= render Admin::ListComponent.new(
+    title: "Timetables",
+    items: @timetables,
+    empty_state: {
+      icon: content_tag(:svg, class: "w-8 h-8 text-neutral-400", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") do
+        content_tag(:path, "", stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z")
+      end,
+      title: "No Timetables Yet",
+      description: "Create your first timetable to start managing class schedules.",
+      action: {
+        text: "Create Timetable",
+        path: new_admin_timetable_path,
+        class: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-body font-semibold rounded-xl shadow-strong hover:shadow-strong hover:from-primary-700 hover:to-primary-800 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500",
+        data: { "turbo-frame": dom_id(Timetable.new) }
+      }
+    }
+  ) %>
+<% end %>

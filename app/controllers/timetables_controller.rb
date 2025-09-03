@@ -8,11 +8,15 @@ class TimetablesController < ApplicationController
 
   # GET /timetables/1 or /timetables/1.json
   def show
-    @timetable_classes = if params[:id] == 'current'
-                           TimetableClasses.new(Timetable.current_timetable)
-                         else
-                           TimetableClasses.new(Timetable.current_term_timetable(params[:id]), params[:id])
-                         end
+    if params[:id] == 'current'
+      @timetable = Timetable.current_timetable
+      @timetable_classes = TimetableClasses.new(@timetable)
+      @current_term = @timetable.term
+    else
+      @timetable = Timetable.current_term_timetable(params[:id])
+      @timetable_classes = TimetableClasses.new(@timetable, params[:id])
+      @current_term = params[:id]
+    end
   end
 
   # GET /timetables/new

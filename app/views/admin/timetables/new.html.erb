@@ -1,5 +1,19 @@
-<h1>New Timetable</h1>
+<!-- Page Header -->
+<div class="mb-8">
+  <div class="flex items-center gap-4 mb-4">
+    <%= link_to admin_timetables_path, 
+        class: "inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors duration-300" do %>
+    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    Back to Timetables
+    <% end %>
+  </div>
+  <h1 class="text-3xl font-display font-semibold text-neutral-800 mb-2">New Timetable</h1>
+  <p class="text-neutral-600 font-body">Create a new timetable for your ballet classes</p>
+</div>
 
+<!-- Form (Turbo Frame) -->
 <%= turbo_frame_tag @timetable do %>
 <%= render "form", timetable: @timetable %>
 <% end %>

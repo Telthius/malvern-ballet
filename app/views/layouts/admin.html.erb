@@ -2,34 +2,41 @@
 <html lang="en">
 
 <head>
-  <title>Malvern Ballet</title>
+  <title>Malvern Ballet - Admin</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="turbo-cache-control" content="no-cache">
-  <meta name="description" content="Welcome to Malvern Ballet School, Inspiring tomorrows dancers today!">
+  <meta name="description" content="Malvern Ballet School Admin Panel">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   <%= favicon_link_tag asset_path("favicon.ico") %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body data-controller="header" data-header-picturein-class="logo" data-header-pictureout-class="secondary" data-header-logo-class="logo-secondary" data-header-blue-class="header-colour" data-header-underline-class="button-underline">
-  <%= render "shared/header" %>
-  <div class="admin-cont flex">
-    <div class="admin-panel col">
-      <h2 class=""><%= link_to "Timetables", admin_timetables_path, class: "admin-panel-link" %></h2>
-      <h2 class=""><%= link_to "Ballet Levels", admin_ballet_levels_path, class: "admin-panel-link" %></h2>
-    </div>
-    <section data-header-target="other" class="admin-main">
-      <div id="flash" class="flash">
+<body class="bg-gradient-to-br from-neutral-50 to-primary-50/20 min-h-screen">
+  <%= render Layout::HeaderComponent.new(current_page: "admin") %>
+
+  <!-- Admin Layout -->
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <%= render Layout::AdminSidebarComponent.new(current_page: controller_name) %>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col">
+      <!-- Flash Messages -->
+      <div id="flash" class="p-4">
         <%= render "layouts/flash" %>
       </div>
-      <%= yield %>
-    </section>
+
+      <!-- Page Content -->
+      <div class="flex-1 p-6">
+        <%= yield %>
+      </div>
+    </main>
   </div>
-  <%= render "shared/footer" %>
+
+  <%= render Layout::FooterComponent.new %>
 </body>
 
 </html>

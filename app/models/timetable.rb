@@ -5,6 +5,7 @@ class Timetable < ApplicationRecord
   TERM_FOUR = '4'
   has_many :ballet_classes, dependent: :destroy
   has_many :class_times, through: :ballet_classes
+  has_many :ballet_levels, through: :ballet_classes
 
   validates :term, inclusion: { in: %w[1 2 3 4] }
   validates :name, presence: true

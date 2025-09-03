@@ -1,0 +1,36 @@
+<div class="<%= card_classes %> group hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1" <%= options.map { |k, v| "#{k}=\"#{v}\"" }.join(" ").html_safe %>>
+  <% if has_image? %>
+  <div class="aspect-video overflow-hidden">
+    <%= image_tag image, class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500", alt: title %>
+  </div>
+  <% end %>
+
+  <div class="relative">
+    <!-- Subtle accent line above content -->
+    <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+    <div class="p-6">
+      <% if title.present? %>
+      <h3 class="text-xl font-display font-semibold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">
+        <%= title %>
+      </h3>
+      <% end %>
+
+      <% if subtitle.present? %>
+      <p class="text-neutral-600 mb-4 font-body leading-relaxed">
+        <%= subtitle %>
+      </p>
+      <% end %>
+
+      <div class="content text-neutral-700 leading-relaxed">
+        <%= content %>
+      </div>
+    </div>
+  </div>
+
+  <% if has_footer? %>
+  <div class="px-6 py-4 bg-gradient-to-r from-neutral-50 to-neutral-100 border-t border-neutral-200">
+    <%= footer %>
+  </div>
+  <% end %>
+</div>

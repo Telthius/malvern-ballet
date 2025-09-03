@@ -1,6 +1,19 @@
-<%= turbo_frame_tag @ballet_level do %>
-<div class="admin-form">
-  <h2>Edit Ballet Level</h2>
-  <%= render "form", ballet_level: @ballet_level %>
+<!-- Back Link -->
+<div class="mb-4">
+  <%= link_to admin_ballet_levels_path,
+      class: "inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors duration-300" do %>
+  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+  </svg>
+  Back to Ballet Levels
+  <% end %>
 </div>
+
+<%= render Admin::PageHeaderComponent.new(
+  title: "Edit Ballet Level",
+  subtitle: "Update #{@ballet_level.name}"
+) %>
+
+<%= turbo_frame_tag @ballet_level do %>
+<%= render "form", ballet_level: @ballet_level %>
 <% end %>

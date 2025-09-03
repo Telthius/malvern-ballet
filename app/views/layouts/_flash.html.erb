@@ -1,9 +1,12 @@
 <% flash.each do |flash_type, message| %>
-  <div
-    class="flash__message"
-    data-controller="removals"
-    data-action="animationend->removals#remove"
-  >
-    <%= message %>
+<div class="<%= flash_classes(flash_type) %>" data-controller="removals" data-action="animationend->removals#remove">
+  <div class="flex items-center">
+    <div class="flex-shrink-0">
+      <%= flash_icon(flash_type) %>
+    </div>
+    <div class="ml-3">
+      <p class="text-sm font-body font-medium"><%= message %></p>
+    </div>
   </div>
+</div>
 <% end %>

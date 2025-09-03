@@ -1,0 +1,87 @@
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-display font-bold text-neutral-900 mb-4">What We Offer</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <!-- Portrait and CTA -->
+      <div class="space-y-8">
+        <div class="relative group">
+          <%= image_tag "portrait-home.webp", 
+              class: "w-full h-auto rounded-2xl shadow-strong group-hover:shadow-strong transition-all duration-500", 
+              alt: "Ballet student portrait" %>
+
+          <!-- Enhanced CTA Button Overlay -->
+          <div class="absolute bottom-6 right-6 transform group-hover:scale-105 transition-transform duration-300">
+            <%= render Shared::ButtonComponent.new(
+                  text: "Register your interest!",
+                  link: new_enrolment_path,
+                  variant: :primary,
+                  size: :medium
+                ) %>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Content -->
+      <div class="space-y-8">
+        <h3 class="text-3xl font-display font-semibold text-neutral-900 mb-6 leading-tight">
+          Comprehensive Dance Education
+        </h3>
+        <p class="text-lg text-neutral-600 mb-8 font-body leading-relaxed">
+          At Malvern Ballet School, we offer a comprehensive range of dance programs designed to nurture talent at every level and age.
+        </p>
+
+        <!-- What We Offer List -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex-shrink-0"></div>
+            <span class="text-neutral-700 font-body">Royal Academy of Dance (RAD) qualified teaching</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex-shrink-0"></div>
+            <span class="text-neutral-700 font-body">Progressive Ballet Technique (PBT)</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex-shrink-0"></div>
+            <span class="text-neutral-700 font-body">Adult Ballet classes</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex-shrink-0"></div>
+            <span class="text-neutral-700 font-body">Bootybarre fitness classes</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex-shrink-0"></div>
+            <span class="text-neutral-700 font-body">Small, intimately coached classes</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex-shrink-0"></div>
+            <span class="text-neutral-700 font-body">RAD examinations</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full flex-shrink-0"></div>
+            <span class="text-neutral-700 font-body">Annual shows and performances</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Director Quote -->
+    <div class="mt-20 pt-20 border-t border-neutral-200">
+      <div class="text-center">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8 shadow-soft border border-primary-200/50">
+            <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-6"></div>
+            <blockquote class="text-xl text-neutral-700 font-body italic leading-relaxed mb-6">
+              "I strongly believe Ballet is for everyone! Young and old should be able to have the opportunity to discover the beauty of ballet. We provide a nurturing, positive environment and strive for each student to love their time with us!"
+            </blockquote>
+            <cite class="text-lg font-display font-semibold text-neutral-900">— Saba Polderman-Charles, Director</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
