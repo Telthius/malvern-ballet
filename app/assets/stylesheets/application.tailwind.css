@@ -98,6 +98,16 @@
   font-display: swap;
 }
 
+/* Font loading styles */
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.fonts-loaded {
+  opacity: 1;
+}
+
 /* Custom keyframe animations */
 @keyframes fadeIn {
   from { opacity: 0; }
