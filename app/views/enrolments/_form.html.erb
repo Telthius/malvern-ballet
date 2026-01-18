@@ -1,0 +1,92 @@
+<div id="enrolment-form" class="px-8 py-12">
+  <%= form_with(model: enrolment, class: "space-y-8") do |form| %>
+
+  <div class="space-y-6">
+    <!-- Name Field -->
+    <div class="form-field">
+      <%= form.label :name, "Full Name", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+      <%= form.text_field :name, 
+            required: true,
+            class: "w-full px-4 py-3 border #{enrolment.errors[:name].any? ? 'border-red-300 bg-red-50' : 'border-neutral-300'} rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900 placeholder-neutral-400",
+            placeholder: "Enter your full name" %>
+      <% if enrolment.errors[:name].any? %>
+      <p class="mt-1 text-sm text-red-600"><%= enrolment.errors[:name].first %></p>
+      <% end %>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-field">
+      <%= form.label :email, "Email Address", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+      <%= form.email_field :email, 
+            required: true,
+            class: "w-full px-4 py-3 border #{enrolment.errors[:email].any? ? 'border-red-300 bg-red-50' : 'border-neutral-300'} rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900 placeholder-neutral-400",
+            placeholder: "Enter your email address" %>
+      <% if enrolment.errors[:email].any? %>
+      <p class="mt-1 text-sm text-red-600"><%= enrolment.errors[:email].first %></p>
+      <% end %>
+    </div>
+
+    <!-- Age Field -->
+    <div class="form-field">
+      <%= form.label :age_of_child, "Age of Dancer", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+      <%= form.number_field :age_of_child, 
+            in: 1..100,
+            required: true,
+            min: 1,
+            max: 100,
+            class: "w-full px-4 py-3 border #{enrolment.errors[:age_of_child].any? ? 'border-red-300 bg-red-50' : 'border-neutral-300'} rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900",
+            placeholder: "Enter age" %>
+      <% if enrolment.errors[:age_of_child].any? %>
+      <p class="mt-1 text-sm text-red-600"><%= enrolment.errors[:age_of_child].first %></p>
+      <% end %>
+    </div>
+
+    <!-- Experience Checkbox -->
+    <div class="form-field">
+      <div class="flex items-center">
+        <%= form.check_box :any_prior_experience, 
+              class: "h-5 w-5 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded transition-all duration-200" %>
+        <%= form.label :any_prior_experience, "Prior dance experience?", 
+              class: "ml-3 text-sm font-medium text-neutral-700" %>
+      </div>
+    </div>
+
+    <!-- Comments Field -->
+    <div class="form-field">
+      <%= form.label :comments_and_queries, "Questions or Comments", class: "block text-sm font-medium text-neutral-700 mb-2" %>
+      <%= form.text_area :comments_and_queries, 
+            rows: 4,
+            class: "w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-body text-neutral-900 placeholder-neutral-400 resize-none",
+            placeholder: "Tell us about your dance goals or ask any questions..." %>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="pt-4">
+      <%= form.submit "Submit Application", 
+            class: "inline-flex items-center justify-center px-8 py-4 font-body font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-strong hover:shadow-strong hover:from-primary-700 hover:to-primary-800 focus:ring-primary-500",
+            data: { 
+              disable_with: "Submitting...",
+              turbo_submits_with: "Submitting..."
+            } %>
+    </div>
+  </div>
+
+  <!-- General Error Summary (for non-field errors) -->
+  <% if enrolment.errors.any? && enrolment.errors.count > enrolment.errors[:name].count + enrolment.errors[:email].count + enrolment.errors[:age_of_child].count %>
+  <div class="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <svg class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <h3 class="text-sm font-medium text-red-800">
+          Please review the form:
+        </h3>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>

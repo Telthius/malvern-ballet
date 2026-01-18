@@ -5,16 +5,10 @@ class EnrolmentsTest < ApplicationSystemTestCase
     @enrolment = enrolments(:one)
   end
 
-  test "visiting the index" do
-    visit enrolments_url
-    assert_selector "h1", text: "Enrolments"
-  end
-
   test "should create enrolment" do
-    visit enrolments_url
-    click_on "New enrolment"
+    visit new_enrolment_url
 
-    click_on "Create Enrolment"
+    click_on "Submit Application"
 
     assert_text "Enrolment was successfully created"
     click_on "Back"

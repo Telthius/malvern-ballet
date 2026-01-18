@@ -1,11 +1,6 @@
 class EnrolmentsController < ApplicationController
   before_action :set_enrolment, only: %i[ show edit update destroy ]
 
-  # GET /enrolments or /enrolments.json
-  def index
-    @enrolment = Enrolment.new
-  end
-
   # GET /enrolments/1 or /enrolments/1.json
   def show
   end
@@ -25,10 +20,18 @@ class EnrolmentsController < ApplicationController
 
     respond_to do |format|
       if @enrolment.save
-        format.turbo_stream { render turbo_stream: turbo_stream.remove('form_submit') }
         @enrolment.send_enrolment_interest_email
+        format.turbo_stream { 
+          render turbo_stream: turbo_stream.replace("enrolment-form-container", partial: "enrolments/success_message")
+        }
+        format.html { 
+          redirect_to new_enrolment_path, notice: "Thank you! Your application has been submitted successfully. We'll be in touch soon." 
+        }
       else
-        format.html { render :index, status: :unprocessable_entity }
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace("enrolment-form", partial: "enrolments/form", locals: { enrolment: @enrolment })
+        }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -51,7 +54,7 @@ class EnrolmentsController < ApplicationController
     @enrolment.destroy
 
     respond_to do |format|
-      format.html { redirect_to enrolments_url, notice: "Enrolment was successfully destroyed." }
+      format.html { redirect_to new_enrolment_url, notice: "Enrolment was successfully destroyed." }
       format.json { head :no_content }
     end
   end

@@ -5,11 +5,6 @@ class EnrolmentsControllerTest < ActionDispatch::IntegrationTest
     @enrolment = enrolments(:one)
   end
 
-  test "should get index" do
-    get enrolments_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_enrolment_url
     assert_response :success
@@ -43,6 +38,6 @@ class EnrolmentsControllerTest < ActionDispatch::IntegrationTest
       delete enrolment_url(@enrolment)
     end
 
-    assert_redirected_to enrolments_url
+    assert_redirected_to new_enrolment_url
   end
 end

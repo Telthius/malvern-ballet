@@ -197,12 +197,7 @@
         <div class="bg-gradient-to-br from-white to-primary-50/20 p-8 rounded-xl shadow-soft border border-neutral-200">
           <h3 class="text-2xl font-display font-semibold text-neutral-900 mb-6">Form Component</h3>
           <p class="text-neutral-600 font-body mb-6">Elegant, accessible forms with beautiful styling and validation feedback.</p>
-          <%= render Shared::FormComponent.new(
-                form_object: Enrolment.new,
-                title: "Register Your Interest",
-                submit_text: "Submit Application",
-                submit_variant: :primary
-              ) %>
+          <%= render "enrolments/form", enrolment: Enrolment.new %>
         </div>
 
         <!-- Admin Form Component Showcase -->
