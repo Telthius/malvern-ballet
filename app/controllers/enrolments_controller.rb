@@ -8,6 +8,11 @@ class EnrolmentsController < ApplicationController
   # GET /enrolments/new
   def new
     @enrolment = Enrolment.new
+    set_meta_tags(
+      title: "Enrol in Ballet Classes - Darfield Ballet School",
+      description: "Enrol in professional ballet classes at Malvern Ballet School in Darfield, Canterbury. Join our dance community and start your dance journey today!",
+      keywords: "enrol ballet darfield, enrol dance darfield, ballet registration darfield, dance registration darfield, join ballet class darfield, join dance class darfield, darfield ballet enrolment, darfield dance enrolment"
+    )
   end
 
   # GET /enrolments/1/edit

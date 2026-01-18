@@ -2,10 +2,72 @@
 <html lang="en">
 
 <head>
-  <title>Malvern Ballet</title>
+  <%= display_meta_tags(canonical: request.url.split('?').first) %>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="turbo-cache-control" content="no-cache">
-  <meta name="description" content="Welcome to Malvern Ballet School, Inspiring tomorrows dancers today!">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DanceSchool",
+      "name": "Malvern Ballet School",
+      "description": "<%= meta_tags[:description] || 'Malvern Ballet School offers professional ballet classes in Darfield, Canterbury. RAD qualified teaching, Progressive Ballet Technique, adult classes, and more. Join our dance community today!' %>",
+      "url": "<%= request.base_url %>",
+      "logo": "<%= request.base_url %><%= image_path("favicon.ico") %>",
+      "image": "<%= request.base_url %><%= image_path("hero.webp") %>",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Darfield",
+        "addressRegion": "Canterbury",
+        "addressCountry": "NZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-43.4850",
+        "longitude": "172.1100"
+      },
+      "telephone": "",
+      "priceRange": "$$",
+      "currenciesAccepted": "NZD",
+      "paymentAccepted": "Cash, Credit Card",
+      "areaServed": {
+        "@type": "City",
+        "name": "Darfield"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ballet Classes",
+        "itemListElement": [{
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "RAD Ballet Classes",
+              "description": "Royal Academy of Dance qualified ballet instruction"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Progressive Ballet Technique",
+              "description": "PBT training for strength and technique"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Adult Ballet Classes",
+              "description": "Ballet classes for adults in Darfield"
+            }
+          }
+        ]
+      },
+      "sameAs": []
+    }
+  </script>
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 

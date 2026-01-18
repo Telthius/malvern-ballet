@@ -31,4 +31,7 @@ Rails.application.routes.draw do
   resources 'timetables', only: [:index, :show]
 
   resources 'ballet_levels', only: [:index, :show], path: 'ballet_classes'
+
+  # Sitemap
+  get 'sitemap.xml', to: 'sitemap#index', format: 'xml', as: :sitemap
 end

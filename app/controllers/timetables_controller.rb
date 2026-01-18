@@ -3,7 +3,11 @@ class TimetablesController < ApplicationController
 
   # GET /timetables or /timetables.json
   def index
-
+    set_meta_tags(
+      title: "Ballet Class Timetables in Darfield",
+      description: "View our current ballet class timetables at Malvern Ballet School in Darfield, Canterbury. Find the perfect class time for your dance journey.",
+      keywords: "ballet timetable darfield, dance timetable darfield, ballet class schedule darfield, dance class schedule darfield, darfield ballet times, darfield dance times"
+    )
   end
 
   # GET /timetables/1 or /timetables/1.json
@@ -17,6 +21,12 @@ class TimetablesController < ApplicationController
       @timetable_classes = TimetableClasses.new(@timetable, params[:id])
       @current_term = params[:id]
     end
+    
+    set_meta_tags(
+      title: "Ballet Class Timetable - #{@timetable.name || @current_term} | Darfield Ballet School",
+      description: "View the #{@timetable.name || @current_term} ballet class timetable at Malvern Ballet School in Darfield, Canterbury. Find class times and schedules.",
+      keywords: "ballet timetable darfield, dance timetable darfield, #{@timetable.name || @current_term} ballet classes darfield, #{@timetable.name || @current_term} dance classes darfield"
+    )
   end
 
   # GET /timetables/new

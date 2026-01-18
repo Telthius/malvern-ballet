@@ -4,11 +4,21 @@ class BalletLevelsController < ApplicationController
   # GET /timetables or /timetables.json
   def index
     @ballet_classes = BalletLevel.all().order(:id)
+    set_meta_tags(
+      title: "Ballet Classes in Darfield - All Levels",
+      description: "Explore all ballet class levels offered at Malvern Ballet School in Darfield, Canterbury. From beginner to advanced, find the perfect ballet class for you.",
+      keywords: "ballet classes darfield, dance classes darfield, darfield ballet levels, darfield dance levels, RAD ballet classes darfield, ballet lessons darfield, dance lessons darfield"
+    )
   end
 
   # GET /timetables/1 or /timetables/1.json
   def show
     @ballet_class = BalletLevel.find_by(name: params[:id])
+    set_meta_tags(
+      title: "#{@ballet_class&.name || 'Ballet Class'} - Darfield Ballet School",
+      description: "Learn about #{@ballet_class&.name || 'our ballet class'} at Malvern Ballet School in Darfield, Canterbury. Professional RAD qualified instruction.",
+      keywords: "#{@ballet_class&.name&.downcase} ballet darfield, #{@ballet_class&.name&.downcase} dance darfield, ballet class darfield, dance class darfield, darfield ballet school, darfield dance school"
+    )
   end
 
   # GET /timetables/new
