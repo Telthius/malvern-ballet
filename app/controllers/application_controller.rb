@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
     
     set_meta_tags(
       site: site_name,
-      title: "Professional Ballet Classes in #{location}, Canterbury",
-      description: "Malvern Ballet School offers professional ballet classes in #{location}, Canterbury. RAD qualified teaching, Progressive Ballet Technique, adult classes, and more. Join our dance community today!",
+      title: "Professional Ballet & Dance Classes in #{location}, Canterbury",
+      description: "Malvern Ballet School - Darfield's premier ballet and dance school. Professional ballet classes in #{location}, Canterbury. RAD qualified teaching, Progressive Ballet Technique, adult classes, and more. Join our dance community today!",
       keywords: "ballet darfield, darfield ballet, dance darfield, darfield dance, ballet classes darfield, dance classes darfield, ballet school darfield, dance school darfield, RAD ballet darfield, dance lessons canterbury, ballet lessons canterbury, malvern ballet school",
       og: {
         site_name: site_name,
